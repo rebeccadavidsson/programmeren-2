@@ -79,9 +79,10 @@ In hoorcolleges bespreekt David Malan van Harvard de theorie waarmee je programm
 
 ## Werkgroepen
 
+*Geldt  niet in periode 1.*
+
 Werkgroepen zijn bijeenkomsten van zo'n 30--60 minuten met je mentor. In de werkgroepen krijg je de kans om samen de voortgang te bespreken, tips uit te wisselen over het aanpakken van problemen en om je medestudenten en mentor beter te leren kennen. Aanwezigheid is vereist.
 
-[Schrijf je in voor een werkgroep](https://doodle.com/poll/a2fv9vh7ic442qu2) (vul je voor- en achternaam goed in!)
 
 ## Practicumuren
 
