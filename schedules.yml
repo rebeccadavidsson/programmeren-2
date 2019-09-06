@@ -1,0 +1,10 @@
+Parttime:
+    Module 6:
+        Overview & Grading: /overviews/homepage
+        "Lecture: HTTP, HTML and CSS": /lectures/http
+        Implement Homepage: /problems/homepage
+    Module 7:
+        Overview & Grading: /overviews/python
+        "Lecture: Python": /lectures/python
+        Implement Sentimental: /problems/sentimental
+        Implement Bleep: /problems/bleep

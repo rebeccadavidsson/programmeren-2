@@ -1,0 +1,9 @@
+name: homepage
+files:
+    required:
+        - homepage.zip
+        - index.html
+        - page1.html
+        - page2.html
+        - page3.html
+        - style.css

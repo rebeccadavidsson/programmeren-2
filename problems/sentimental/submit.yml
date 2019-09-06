@@ -1,0 +1,10 @@
+name: sentimental
+files:
+    required:
+        - hello.py
+        - mario.py
+        - cash.py
+        - vigenere.py
+check:
+    tool: check50v2
+    slug: sentimental@minprog/checks

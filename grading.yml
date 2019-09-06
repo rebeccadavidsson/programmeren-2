@@ -1,0 +1,121 @@
+templates:
+    1: &fullyauto
+        type: pass
+        subgrades:
+            correctness: integer
+        automatic:
+            correctness: (check_score * 5).floor
+        calculation: -(correctness/5)
+        hide_calculated: true
+    # 2: &automatic
+    #     type: float
+    #     subgrades:
+    #         correctness: integer
+    #         design: integer
+    #         style: integer
+    #     automatic:
+    #         correctness: (check_score * 5).floor
+    #         style: style_score
+    #     calculation: ((3 * correctness + 2 * design + 1 * style - 6) * 0.375 + 1).round(1)
+    #     hide_calculated: true
+    3: &manual
+        type: float
+        subgrades:
+            points: integer
+            hacker: integer
+            late: integer
+        calculation: ((points + hacker - late) / 5 * 9 + 1).round(1)
+    4: &test
+        type: pass
+        subgrades:
+            passed: integer
+        calculation: passed
+        hide_calculated: true
+
+grades:
+    scratch: *fullyauto
+    greedy: *fullyauto
+    mario_less: *fullyauto
+    mario_more: *fullyauto
+    credit: *fullyauto
+    initials_less: *fullyauto
+    initials_more: *fullyauto
+    caesar: *fullyauto
+    vigenere: *fullyauto
+    crack: *fullyauto
+    music: *fullyauto
+    fifteen: *fullyauto
+    find_less: *fullyauto
+    find_more: *fullyauto
+    whodunit:
+        type: float
+        subgrades:
+            correctness: integer
+        calculation: (correctness / 5.0 * 9 + 1).round(1)
+        hide_calculated: true
+    resize_less: *fullyauto
+    resize_more: *fullyauto
+    recover: *fullyauto
+    speller: *fullyauto
+    m0: *manual
+    m1: *manual
+    m2: *manual
+    m3: *manual
+    m4: *manual
+    m5: *manual
+    test A: *test
+    test B: *test
+    test C: *test
+
+modules:
+    m0:
+        - scratch
+    m1:
+        - greedy
+        - credit
+        - mario_less
+        - mario_more
+    m2:
+        - caesar
+        - vigenere
+        - crack
+    m3:
+        - fifteen
+        - find_less
+        - find_more
+    m4:
+        - whodunit
+        - resize_less
+        - resize_more
+        - recover
+    m5:
+        - speller
+
+calculation:
+    final:
+        tests: 0
+        mods: 100
+# resit:
+#     tests: 0
+#     modules: 100
+
+mods:
+    submits:
+        m0: 0
+        m1: 1
+        m2: 1
+        m3: 1
+        m4: 1
+        m5: 1
+
+tests:
+    required: true
+    submits:
+        t1: 1
+        t2: 1
+        t3: 1
+        t4: 1
+        t5: 1
+        t6: 1
+        t7: 1
+        t8: 1

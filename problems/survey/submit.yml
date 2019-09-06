@@ -1,0 +1,9 @@
+name: survey
+files:
+    required:
+        - survey.zip
+        - application.py
+        - form.html
+check:
+    tool: check50v2
+    slug: survey@minprog/checks
