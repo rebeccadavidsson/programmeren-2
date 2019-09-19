@@ -217,7 +217,7 @@ Your classes now should look like this:
 
 Note that some of the methods that you wrote aren't in this diagram. Usually, we keep everything that's not relevant out of the diagrams.
 
-To determine what is relevant, we look at classes from a "user" perspective. What information do we need to use the class well? We wouldn't need to know that `Deck` has all cards in a Python list called `cards`, because `Deck` has two well-defined methods that we need to work with the deck: `shuffle` and `deal`. Everything else is *implementation detail*.
+To determine what is relevant, we look at classes from another programmer's perspective. They might want to use your card classes to implement a game. What information do they need to use the class well? For example, they would not need to know that `Deck` stores all cards in a list called `cards`. They would want to know about the methods they would need to call when implementing a game: `shuffle` and `deal`. Everything else is *implementation detail*.
 
 In other words, classes' data is kept private and only through their methods should their attributes be manipulated. This idea is called *encapsulation*. However, data classes like `Card` are an exception to this rule. Data classes are purposely designed to hold some basic data, just like a `struct` in C, and attributes are usually manipulated directly, not through methods.
 
