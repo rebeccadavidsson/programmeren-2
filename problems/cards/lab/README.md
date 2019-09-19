@@ -239,6 +239,8 @@ You won't submit this lab. If you'd like to save the `Card` and `Deck` classes t
 
 ## New concepts
 
+**Class** --- all of the code that defines a series of objects. You can instantiate several objects of a class, each containing separate data. For example, in the exercises, you needed 52 individual cards, each with different names. But the code for each card is the same, and defined in the `Card` class.
+
 **Attribute** --- a value stored inside an object. The idea is that you can combine several attributes into one object. For example, you combined "suit" and "value", which together define a unique card in a deck of cards. In other word, each "card" always should have a "suit" and a "value".
 
 **Self** -- if you have a python object like `card1`, you may store data inside such an object by setting `card1.value = ...`. But an object can also contain a method for manipulating data. If you want to manipulate data from *within* the object, use the name `self`.
