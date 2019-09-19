@@ -6,8 +6,6 @@ In this module, you'll implement a game while learning about object-oriented pro
 
 For information on (or help with) this week:
 
-1. Watch the walkthroughs included in all problems.
-
 4. Ask questions during office hours using the "Ask" tool on this website.
 
 5. Visit (or e-mail) the course's heads.
@@ -22,7 +20,6 @@ Alright, here we go again!
 
 Log into <https://ide.cs50.io/> and execute the below in a terminal window.
 
-    update50
     mkdir ~/module8/
     cd ~/module8/
 
