@@ -3,5 +3,5 @@ files:
     required:
         - hangman.py
 check:
-    tool: check50v2
+    tool: check50
     slug: hangman@minprog/checks
