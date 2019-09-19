@@ -292,7 +292,7 @@ Note that the program shown in the introduction at the top of the assignment is 
 
 ## Testing
 
-	check50 hangman@minprog/cs50
+	check50 minprog/cs50x/2019/hangman
 
 ## Extensions
 
