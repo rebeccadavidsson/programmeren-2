@@ -19,7 +19,9 @@ In a UML diagram, the class looks like this:
 
 ![A UML diagram of a class called Card with two attributes: one is called suit of type string, the other is called value, also of type string.](card_class.png)
 
-**Write** a declaration for the `Card` class. In the editor to the right, add it to `cardgame.py`. Don't worry about putting something *in* the class; you'll write the class body in a minute!
+UML, or unified modeling language, provides us with a way to draw diagrams of how we want classes to be programmed. It is not meant to be complicated: just a box with the class name, and below that, the contents of the class. In this case the "suit" and "value" attributes are specified. Both attributes are supposed to be strings.
+
+**Assignment** --- Write a declaration for the `Card` class. In the editor to the right, add it to `cardgame.py`. Don't worry about putting something *in* the class; you'll write the class body in a minute!
 
 {% spoiler "Syntax Help" %}
 Use the following syntax:
@@ -35,7 +37,7 @@ After writing the declaration, press Next to go on.
 
 ## Card: initializer
 
-Because `Card` is a data class, there are only two methods that are really needed to make it useful:
+A method is a function that is attached to a particular class. That is why the code for a method should reside *inside* a class definition. Because `Card` is a data class, there are only two methods that are really needed to make it useful:
 
 - `__init__` to set values when creating one specific object of type `Card`
 - `__str__` to provide an easily readable description of the `Card` object
@@ -65,6 +67,8 @@ In the parameter list of the `__init__` method, you define for which attributes 
 Return a formatted string like this one:
 
     f"hello, {s}"
+
+This will create a new string that contains `hello, ` and then it will insert the value of the variable `s`. For example, if `s` happens to be the string `"David"`, the f-string above would amount to `"hello, David"`.
 {% endspoiler %}
 
 {% next "Next: Testing" %}
@@ -84,7 +88,7 @@ Use the following syntax:
 
     var1 = ClassName(...)
 
-This assigns a new object of type `ClassName` to the variable `var1`. In the place of the `...` you should provide the required parameters for the initializer. Recall which parameters are needed?
+This assigns a new object of type `ClassName` to the variable `var1`. In the place of the `...` you should provide the required parameters for the initializer. Recall which parameters are needed? These should match the parameters you required in the `__init__` method that you wrote.
 {% endspoiler %}
 
 And after those statements, **add** a few statements that print the objects from the variables you created.
@@ -122,7 +126,7 @@ As you can see, we *hardcode* the suits and values, because in our program, thes
 
 ## Deck: instantiating cards
 
-With those `suits` and `values`, there is enough information in the `Deck` class to be able to create a `Card` instance for each of 52 combinations.
+The purpose of a "deck" will be to *contain* a set of 52 cards. In Python, we choose to store these cards in a list. With the `suits` and `values` we defined in the previous step, there is enough information in the `Deck` class to be able to create a `Card` instance for each of 52 combinations.
 
 **Write** code to generate all 52 `Card`s and add them to a list called `cards`. Code to do this should be added to the end of the initializer.
 
@@ -135,10 +139,8 @@ Here is one suggestion for the pseudocode:
             create new Card with that combination
             add it to the list
 
-The list of cards should be an attribute (using `self`), so it can be accessed in other methods!
+The list of cards should be an attribute (using `self`), so it will be stored inside the Deck object when we create one.
 {% endspoiler %}
-
-It's possible to generate all cards and add them to the `cards` variable using a single line of code. However, it is no problem to use more lines! Make it work first, then optimize.
 
 {% next %}
 
@@ -153,7 +155,7 @@ Now you can test the class. Go to the `if __name__ == "__main__"` section of you
     deck = Deck()
     print(deck)
 
-This creates one instance of a `Deck` and prints it. When run, your program will hopefully report that the deck contains 52 cards!
+This creates one instance of a `Deck` and prints it. When run, your program will hopefully report that the deck contains 52 cards! If not, retrace your steps and ask for help.
 
 {% next %}
 
@@ -232,5 +234,17 @@ This is what your classes should look like from an implementation perspective:
 If not quite the same, think about the differences and why you decided to do it differently. Your design might as well be better! Ask your neighbor to discuss.
 
 You won't submit this lab. If you'd like to save the `Card` and `Deck` classes to your computer, now is the time to do so!
+
+{% next %}
+
+## New concepts
+
+**Attribute** --- a value stored inside an object. The idea is that you can combine several attributes into one object. For example, you combined "suit" and "value", which together define a unique card in a deck of cards. In other word, each "card" always should have a "suit" and a "value".
+
+**Self** -- if you have a python object like `card1`, you may store data inside such an object by setting `card1.value = ...`. But an object can also contain a method for manipulating data. If you want to manipulate data from *within* the object, use the name `self`.
+
+**Initializer** --- a special method that is called when you create an instance of the class, for example: `Card()`. You can also define initializers that accept parameters, so you might call `Card("Ace", "spades")` to create a new instance and immediately fill some attributes.
+
+**Data class** --- a class that contains only attributes, with an initializer to fill those attributes when creating an instance of the class. The initializer uses `self` to store the attributes in the object.
 
 This was Game of Cards.

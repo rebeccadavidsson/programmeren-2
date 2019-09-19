@@ -34,7 +34,7 @@ Log into <https://ide.cs50.io/> and execute the below in a terminal window.
 
 1. If you haven't yet, create an account at [GitHub](https://github.com/join). For now, you'll only need it to access the Game of Cards exercises, but in later courses you'll be submitting your programs on this website!
 
-1. Practice with [Game of Cards](https://lab.cs50.io/uva/cs50x/master/problems/cards/lab).
+1. Practice with [Game of Cards](https://lab.cs50.io/minprog/programmeren-2/master/problems/cards/lab).
 
 1. Watch:
 
