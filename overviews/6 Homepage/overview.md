@@ -27,8 +27,8 @@ Alright, here we go again!
 
 Log into <https://ide.cs50.io/> and execute the below in a terminal window.
 
-    mkdir ~/workspace/module6/
-    cd ~/workspace/module6/
+    mkdir ~/module6/
+    cd ~/module6/
 
 
 ## What to Do

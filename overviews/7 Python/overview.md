@@ -35,8 +35,8 @@ Alright, here we go again!
 
 Log into <https://ide.cs50.io/> and execute the below in a terminal window.
 
-    mkdir ~/workspace/module7/
-    cd ~/workspace/module7/
+    mkdir ~/module7/
+    cd ~/module7/
 
 
 ## What to Do

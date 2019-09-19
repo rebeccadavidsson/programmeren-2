@@ -1,14 +1,10 @@
-# Module 9: Web
+# Module 10: Web
 
 In this module, you'll implement a program that can detect similar parts in two texts, while learning about "natural language processing" and the Python NLP library.
 
 ## Help
 
 For information on (or help with) this week:
-
-1. Watch the walkthroughs included in all problems.
-
-2. Attend your tutor's section (if you're hi-speed).
 
 4. Ask questions during office hours using the "Ask" tool on this website.
 
@@ -22,13 +18,12 @@ Do keep in mind the course's policy on [academic honesty](/syllabus#academic_hon
 
 ## Getting Started
 
-Alright, here we go again!
+Alright, here we go again, for the last time!
 
-Log into <https://cs50.io/> and execute the below in a terminal window.
+Log into <https://ide.cs50.io/> and execute the below in a terminal window.
 
-    update50
-    mkdir ~/workspace/pset9/
-    cd ~/workspace/pset9/
+    mkdir ~/module10/
+    cd ~/module10/
 
 
 ## What to Do
@@ -55,7 +50,7 @@ Log into <https://cs50.io/> and execute the below in a terminal window.
 
 ## How to Submit
 
-1. When ready to submit, log into [CS50 IDE](https://cs50.io/).
+1. When ready to submit, log into [CS50 IDE](https://ide.cs50.io/).
 
 2. Download your `.py` files.
 

@@ -3,5 +3,5 @@ files:
     required:
         - bleep.py
 check:
-    tool: check50v2
-    slug: bleep@minprog/checks
+    tool: check50
+    slug: minprog/cs50x/2019/bleep

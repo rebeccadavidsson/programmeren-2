@@ -6,5 +6,5 @@ files:
         - inventory.py
         - item.py
 check:
-    tool: check50v2
-    slug: adventure@minprog/checks
+    tool: check50
+    slug: minprog/cs50x/2019/adventure

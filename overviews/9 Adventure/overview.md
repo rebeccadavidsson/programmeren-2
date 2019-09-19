@@ -1,4 +1,4 @@
-# Module 7: Adventure
+# Module 9: Adventure
 
 In this module, you'll again implement a game. This time, the running game will contain a lot of objects that together form the map of an adventure.
 
