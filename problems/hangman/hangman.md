@@ -245,7 +245,7 @@ Again, test your game interactively by running `python -i` and then `import hang
     print(game.pattern())
     print(game)
 
-### 5. Handling exceptions
+### Intermezzo: handling exceptions
 
 What happens when you want to create a Hangman game that does not follow the specifications? For example, what should happen if someone uses your class like the following:
 
@@ -279,9 +279,9 @@ Note that `check50` for this problem expects that such checks, with accompanying
 
 ### 5. Implementing user interaction
 
-While the `Hangman` class has all you need to play Hangman, someone who does not know your program won't understand that you have to write things like `game = Hangman(8, 6)` to start a game and `game.guess("e")` to guess a letter. So, let's make a user interface.
+While the `Hangman` class has all you need to play Hangman, someone who does not know your program won't understand that you have to write things like `game = Hangman(8, 6)` to start a game and `game.guess("e")` to guess a letter. So, let's make a **user interface**.
 
-Your user interface should at least
+Your user interface should at least:
 
 1. Prompt the user for how many letters the Hangman word should have. If the input is not a positive integer, or there is no word with that many letters, repeat the prompt until you get correct input.
 
