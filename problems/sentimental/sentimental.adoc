@@ -1,15 +1,10 @@
----
-layout: 2018/spring
----
-:skip-front-matter:
-
 = Sentimental
 
 == tl;dr
 
 . Port `hello.c` to `hello.py`.
 . Port `mario.c` to `mario.py`.
-. Port `cash.c` to `cash.py`
+. Port `greedy.c` to `greedy.py`
 . Port `vigenere.c` to `vigenere.py`.
 
 == Problems
@@ -17,28 +12,26 @@ layout: 2018/spring
 . Implement the below exactly as specified but in Python:
 +
 --
-* link:/problems/hello[Hello], in `pset6/hello/hello.py`
+* link:/problems/hello[Hello], in `module7/hello/hello.py`
 --
 . Implement the below exactly as specified but in Python:
 +
 --
-* link:/problems/mario-more[Mario], more comfortable, in `pset6/mario/mario.py`
+* link:/problems/mario-more[Mario], more comfortable, in `module7/mario/mario.py`
 --
 +
 . Implement the below exactly as specified but in Python:
 +
 --
-* link:/problems/cash[Cash], less comfortable, in `pset6/cash/cash.py`
+* link:/problems/greedy[Greedy], less comfortable, in `module7/cash/cash.py`
 --
 . Implement the below exactly as specified but in Python:
 +
 --
-* link:/problems/vigenere[Vigenère], less comfortable, in `pset6/vigenere/vigenere.py`
+* link:/problems/vigenere[Vigenère], less comfortable, in `module7/vigenere/vigenere.py`
 --
 
 == Walkthroughs
-
-Note that, among these walkthroughs, Cash was previously called Greedy.
 
 video::5ueXMnDE-y8[youtube,list=PLhQjrBD2T381raeNI8WdI4D7GMu0XFGTh]
 
@@ -47,7 +40,7 @@ video::5ueXMnDE-y8[youtube,list=PLhQjrBD2T381raeNI8WdI4D7GMu0XFGTh]
 === Correctness
 
 ```
-check50 minprog/cs50x/2019/sentimental
+check50 minprog/cs50x/py/sentimental
 ```
 
 === Style
