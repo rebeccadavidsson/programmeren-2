@@ -12,23 +12,23 @@
 . Implement the below exactly as specified but in Python:
 +
 --
-* link:/problems/hello[Hello], in `module7/hello/hello.py`
+* https://prog1.mprog.nl/problems/hello[Hello], in `module7/hello/hello.py`
 --
 . Implement the below exactly as specified but in Python:
 +
 --
-* link:/problems/mario-more[Mario], more comfortable, in `module7/mario/mario.py`
+* https://prog1.mprog.nl/problems/mario-more[Mario], more comfortable, in `module7/mario/mario.py`
 --
 +
 . Implement the below exactly as specified but in Python:
 +
 --
-* link:/problems/greedy[Greedy], less comfortable, in `module7/cash/cash.py`
+* https://prog1.mprog.nl/problems/greedy[Greedy], less comfortable, in `module7/cash/cash.py`
 --
 . Implement the below exactly as specified but in Python:
 +
 --
-* link:/problems/vigenere[Vigenère], less comfortable, in `module7/vigenere/vigenere.py`
+* https://prog1.mprog.nl/problems/vigenere[Vigenère], less comfortable, in `module7/vigenere/vigenere.py`
 --
 
 == Walkthroughs
@@ -40,7 +40,7 @@ video::5ueXMnDE-y8[youtube,list=PLhQjrBD2T381raeNI8WdI4D7GMu0XFGTh]
 === Correctness
 
 ```
-check50 minprog/cs50x/py/sentimental
+check50 minprog/cs50x/2019/sentimental
 ```
 
 === Style
