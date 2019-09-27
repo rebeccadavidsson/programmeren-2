@@ -58,13 +58,13 @@ Code from lecture can be found on [Github](https://github.com/cs50/lectures/tree
     *   `Content-Type: text/html` indicates that the content of the response is in the language called HTML, in text format.
 
 *   We can open a browser like Chrome, and open the Developer Tools with View > Developer > Developer Tools. A panel will open:  
-    ![panel in Chrome with various tabs](/college/2018/fall/weeks/5/notes/network.png)
+    ![panel in Chrome with various tabs](network.png)
 
     *   We can click the Network tab, and if we type `harvard.edu` into the address bar and press enter, a lot will happen very quickly. We can scroll to the very top, click the first request for `harvard.edu`, and see in the right panel, under “Request Headers”, that the browser indeed sends a request that starts with what we expected:  
-        ![request in Chrome](/college/2018/fall/weeks/5/notes/request.png)
+        ![request in Chrome](request.png)
 
 *   We can scroll in the same panel and see that the response headers are slightly different:  
-    ![response in Chrome](/college/2018/fall/weeks/5/notes/response.png)
+    ![response in Chrome](response.png)
 
     *   The response code, `301`, seems to say “Moved Permanently”. And if we look down to “Location:”, we see that the new location is `https://www.harvard.edu`. There's a `www`, and also a different protocol, HTTPS, which will encrypt our communication more securely.
 
@@ -89,7 +89,7 @@ Code from lecture can be found on [Github](https://github.com/cs50/lectures/tree
 
 *   In our browser, we can click View > Developer > View Source on a website to see the HTML that drives websites:  
 
-    ![view source in Chrome for CS50](/college/2018/fall/weeks/5/notes/view_source.png)
+    ![view source in Chrome for CS50](view_source.png)
 
     *   We can see that this is just text, and the first line, `<span class="cp"><!DOCTYPE html></span>`, indicates to browsers that the page is written in HTML.
 
@@ -120,7 +120,7 @@ Code from lecture can be found on [Github](https://github.com/cs50/lectures/tree
 *   With the text editor in CS50 IDE, we can create and save a file called `index.html` with our example code. The CS50 IDE is web-based, and it can run a web server, which is a program that can listen for and respond to web requests.
 
 *   We can run a server in the terminal, called `http-server`, a free and open-source package. If we run that command, we'll see some information:  
-    ![http-server in terminal in CS50 IDE](/college/2018/fall/weeks/5/notes/http_server.png)
+    ![http-server in terminal in CS50 IDE](http_server.png)
 
     *   `./` is the current directory, and in this case we are in our `~/workspace/` folder.
 
@@ -412,7 +412,7 @@ Code from lecture can be found on [Github](https://github.com/cs50/lectures/tree
 
 *   Our example webpage can be represented by a tree, in what's called the DOM, Document Object Model:  
 
-    ![simple webpage mapped to a tree with each element as a node, nested](/college/2018/fall/weeks/5/notes/dom.png)
+    ![simple webpage mapped to a tree with each element as a node, nested](dom.png)
 
     *   Notice that each node is an element on the page, and nested nodes show as children nodes. A browser, when it loads a webpage, automatically builds a tree in memory with elements from the HTML.
 
