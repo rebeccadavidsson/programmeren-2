@@ -1,6 +1,6 @@
 # CS50x University of Amsterdam
 
-## Studiewijzer, herfst 2019<br><small>Programmeren 1 Fulltime</small>
+## Studiewijzer, herfst 2019<br><small>Programmeren 2 Fulltime</small>
 
 > "Introduction to the intellectual enterprises of computer science and the art of programming. This course teaches you how to think algorithmically and solve problems efficiently. Topics include abstraction, algorithms, data structures, encapsulation, resource management, security, software engineering, and web development. Languages include C, Python and SQL plus CSS and HTML. Problem sets inspired by real-world domains of biology, cryptography, finance, forensics, and gaming. Designed for concentrators and non-concentrators alike, with or without prior programming experience." --- CS50 at Harvard.
 
@@ -18,8 +18,7 @@ Om de cursus tot een goed einde te brengen, verwachten we dat je:
 - alle werkgroepen bijwoont,
 - het electronica-practicum doet,
 - alle uren aanwezig bent in het lab,
-- alle opdrachten volledig uitgewerkt instuurt,
-- alle toetsjes maakt en haalt, en
+- alle opdrachten volledig uitgewerkt instuurt, en
 - het tentamen maakt en haalt.
 
 
@@ -32,7 +31,7 @@ Heb je een schriftelijke vraag, bijvoorbeeld omdat je een uitzondering nodig heb
 
 ## Cijfers
 
-Alle studenten moeten minimaal een geheel correcte oplossing voor elk opdracht inleveren, alle toetsjes halen en het tentamen halen om een voldoende te halen voor het vak, tenzij daarop een schriftelijke uitzondering is gegeven door de vakdocenten.
+Alle studenten moeten minimaal een geheel correcte oplossing voor elk opdracht inleveren en het tentamen halen om een voldoende te halen voor het vak, tenzij daarop een schriftelijke uitzondering is gegeven door de vakdocenten.
 
 Het eindcijfer voor deze cursus wordt bepaald door het aantal gescoorde punten voor elke module. De modules kunnen 1--5 punten opleveren, en voor elke module zijn diverse aspecten aangegeven op basis waarvan de punten voornamelijk (maar niet uitsluitend) worden bepaald. De schaal is als volgt:
 
@@ -43,23 +42,20 @@ Het eindcijfer voor deze cursus wordt bepaald door het aantal gescoorde punten v
 1. zichtbare aandacht voor een beperkt aantal aspecten
 {: start="5" reversed=""}
 
-Op basis van bovenstaand schema is de maximumscore voor deze cursus 20 punten (4 modules x 5 punten). Deze score wordt omgerekend naar een cijfer tussen 1 en 10, zoals gebruikelijk. Daarnaast kan het doen van een "hacker edition" van een module, indien beschikbaar, een extra punt opleveren. Toetsjes en het tentamen leveren geen punten op voor het eindcijfer, maar moeten wel gehaald worden.
+Op basis van bovenstaand schema is de maximumscore voor deze cursus 20 punten (4 modules x 5 punten). Deze score wordt omgerekend naar een cijfer tussen 1 en 10, zoals gebruikelijk. Daarnaast kan het doen van een "hacker edition" van een module, indien beschikbaar, een extra punt opleveren. Het tentamen levert geen punten op voor het eindcijfer, maar moet wel gehaald worden.
 
 
 ## Deadlines
 
-Elke module moet op de vooraf bepaalde deadline ingeleverd zijn. Een voorlopig schema van deadlines vind je hieronder. Alle deadlines zijn om 23:59 op de genoemde datum.
+Elke module moet op de vooraf bepaalde deadline ingeleverd zijn. Een **voorlopig** schema van deadlines vind je hieronder. Alle deadlines zijn om 23:59 op de genoemde datum.
 
-| deadline | fulltime  |  
-| -------- | --------- |  
-| Module 0 | ma  2 sep |  
-| Module 1 | vr  6 sep |  
-| Module 2 | vr 13 sep |  
-| Module 3 | vr 20 sep |  
-| Module 4 | vr 27 sep |  
-| Module 5 | vr 27 sep |  
-
-Module 5 is een optionele extra uitdaging voor studenten die erg snel door de cursus heen gaan.
+| deadline  | fulltime  |  
+| --------- | --------- |  
+| Module 6  | vr  4 okt |  
+| Module 7  | vr  4 okt |  
+| Module 8  | wo  9 okt |  
+| Module 9  | vr 18 okt |  
+| Module 10 | do 24 okt |  
 
 In het geval van planningsproblemen of ziekte is het mogelijk de deadline met 1 tot 3 dagen op te schuiven, in ruil voor een bescheiden puntenaftrek. Dit gaat volledig automatisch bij later inleveren en hoeft dus in beginsel niet gemeld te worden. Toch is het verstandig om je mentor aan te spreken om te overleggen of advies te vragen over het halen van verdere deadlines.
 
@@ -68,14 +64,12 @@ In het geval van planningsproblemen of ziekte is het mogelijk de deadline met 1 
 | maximaal 1 dag   | 1/2 punt |  
 | maximaal 3 dagen | 1 punt   |  
 
-Voor modules 0 en 5 is geen uitstel mogelijk.
-
 Nog later ingeleverd werk kan normaliter niet geaccepteerd worden, behalve bij medische noodgevallen. In dat geval is het noodzakelijk om direct contact op te nemen met de docenten, maar zeker vóór je doorgaat met werken aan de opdrachten.
 
 
 ## Hoorcolleges
 
-In hoorcolleges bespreekt David Malan van Harvard de theorie waarmee je programmeerproblemen kunt oplossen en die je voorbereidt op de toetsjes. Kijk de video's vóór of onderweg naar het lab, zodat je je tijd in het lab goed kan gebruiken voor programmeren en vragen stellen.
+In hoorcolleges bespreekt David Malan van Harvard de theorie waarmee je programmeerproblemen kunt oplossen. Kijk de video's vóór of onderweg naar het lab, zodat je je tijd in het lab goed kan gebruiken voor programmeren en vragen stellen.
 
 
 ## Werkgroepen
@@ -86,13 +80,6 @@ Werkgroepen zijn bijeenkomsten van zo'n 30--60 minuten met je mentor. In de werk
 ## Practicumuren
 
 Tijdens de practicumuren, dagelijks van 9 tot 17 uur, kun je terecht in het programmeerlab voor het werken aan je opdrachten, uitwisselen van ideeën met medestudenten en het stellen van vragen aan studentassistenten.
-
-
-## Toetsjes
-
-Wekelijks op donderdag vinden toetsjes plaats waarin de stof van de vorige weken wordt herhaald en scherper gemaakt. Voor een deel van de toetsjes studeer je in het "Basisboek Programmeren" waarvan delen worden verspreid in het lab. Andere toetsjes hebben directer betrekking op de opdrachten en vragen doorgaans niet om veel voorbereiding.
-
-Alle toetsjes moeten gehaald worden om de cursus te voltooien, maar alle toetsjes kunnen zonodig binnen enkele dagen herkanst worden. Meer informatie krijg je bij het afnemen van de toetsjes.
 
 
 ## Boeken
