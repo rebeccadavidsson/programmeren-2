@@ -3,7 +3,7 @@ files:
     required:
         - hello.py
         - mario.py
-        - cash.py
+        - greedy.py
         - vigenere.py
 check:
     tool: check50

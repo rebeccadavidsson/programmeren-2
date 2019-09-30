@@ -23,13 +23,17 @@ templates:
 
 grades:
     homepage:
-        type: float
+        type: pass
         subgrades:
             correctness: integer
         calculation: (correctness / 5.0 * 9 + 1).round(1)
         hide_calculated: true
     sentimental: *fullyauto
     bleep: *fullyauto
+    hangman: *fullyauto
+    adventure: *fullyauto
+    similarities: *fullyauto
+    survey: *fullyauto
 
     m6: *manual
     m7: *manual
