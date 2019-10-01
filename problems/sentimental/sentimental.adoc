@@ -12,7 +12,7 @@
 . Implement the below exactly as specified but in Python:
 +
 --
-* https://prog1.mprog.nl/problems/hello[Hello], in `module7/hello/hello.py`
+* https://lab.cs50.io/uva/cs50x/master/problems/hello/[Hello], in `module7/hello/hello.py`
 --
 . Implement the below exactly as specified but in Python:
 +

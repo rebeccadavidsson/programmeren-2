@@ -162,15 +162,6 @@ check50 minprog/cs50x/2019/similarities/less
 style50 helpers.py
 ```
 
-== Staff's Solution
-
-=== CLI
-
-[source]
-----
-~cs50/pset6/less/compare
-----
-
 === Web
 
 http://similarities.cs50.net/less
