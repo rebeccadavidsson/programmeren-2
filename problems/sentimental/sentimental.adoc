@@ -12,23 +12,23 @@
 . Implement the below exactly as specified but in Python:
 +
 --
-* https://lab.cs50.io/uva/cs50x/master/problems/hello/[Hello], in `module7/hello/hello.py`
+* https://lab.cs50.io/uva/cs50x/master/problems/hello/[Hello], in `module7/hello.py`
 --
 . Implement the below exactly as specified but in Python:
 +
 --
-* https://prog1.mprog.nl/problems/mario-more[Mario], hacker edition, in `module7/mario/mario.py`
+* https://prog1.mprog.nl/problems/mario-more[Mario], hacker edition, in `module7/mario.py`
 --
 +
 . Implement the below exactly as specified but in Python:
 +
 --
-* https://prog1.mprog.nl/problems/greedy[Greedy], in `module7/cash/cash.py`
+* https://prog1.mprog.nl/problems/greedy[Greedy], in `module7/greedy.py`
 --
 . Implement the below exactly as specified but in Python:
 +
 --
-* https://prog1.mprog.nl/problems/vigenere[Vigenère], in `module7/vigenere/vigenere.py`
+* https://prog1.mprog.nl/problems/vigenere[Vigenère], in `module7/vigenere.py`
 --
 
 == Walkthroughs
