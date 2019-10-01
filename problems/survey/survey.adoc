@@ -24,9 +24,8 @@ video::0zIpv_dbaSQ[youtube]
 
 Here's how to download this problem's distribution into your own CS50 IDE. Log into link:https://cs50.io/[CS50 IDE] and then, in a terminal window, execute each of the below.
 
-1. Execute `update50` to ensure your IDE is up-to-date. That command might take a few minutes to finish.
-1. Execute `cd` to ensure that you're in `~/workspace/` (i.e., a directory called `workspace` that's in your home directory, aka `~`).
-1. Execute `mkdir pset7` to make (i.e., create) a directory called `pset7` in your `workspace` directory, if you haven't already done so.
+1. Execute `cd` to ensure that you're in `~/` (i.e., your home directory, aka `~`).
+1. Execute `mkdir pset7` to make (i.e., create) a directory called `pset7` in your home directory, if you haven't already done so.
 1. Execute `cd pset7` to change into (i.e., open) that directory.
 1. Execute `wget http://cdn.cs50.net/2018/fall/psets/7/survey/survey.zip` to download a (compressed) ZIP file with this problem's distribution.
 1. Execute `unzip survey.zip` to uncompress that file.
@@ -139,7 +138,7 @@ It is reasonable to view its HTML and CSS.
 
 In order to submit this problem, create a zipfile containing all of the files and directories for your application:
 
-- `cd psetXX`
+- `cd pset7`
 - `zip -r survey.zip survey`
 
 Now your new file `finance.zip` will be put next to the `finance` directory. You can download it via the Download option in the CS50 IDE. Make sure that the file is not unzipped on your own computer, but instead left as-is, so you can add it to the form below.
