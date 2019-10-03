@@ -124,7 +124,7 @@ The first thing to implement is a class called `Lexicon` in a file called `hangm
 Download the lexicons via:
 
 	cd ~/module8
-	wget https://prog2.mprog.nl/course/problems/hangman/dictionary.zip
+	wget https://prog2.mprog.nl/course/problems/hangman/dictionaries.zip
 	unzip dictionary.zip
 
 The Lexicon class should implement two methods: the `__init__(self)` method for creating a Lexicon, a `get_words(self, length)` to extract words of a specific length to play Hangman. The structure of your code should be as follows.
