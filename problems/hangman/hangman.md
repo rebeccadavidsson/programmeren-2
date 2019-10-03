@@ -119,7 +119,13 @@ When writing the classes, you should take this into account. `check50` needs to 
 
 ### 1. The `Lexicon` class
 
-The first thing to implement is a class called `Lexicon`, which has the responsibility of managing the full word list and extracting words of a given length. It can be loaded once and asked for words whenever a new game is started.
+The first thing to implement is a class called `Lexicon` in a file called `hangman.py`, which has the responsibility of managing the full word list and extracting words of a given length. It can be loaded once and asked for words whenever a new game is started.
+
+Download the lexicons via:
+
+	cd ~/module8
+	wget https://prog2.mprog.nl/course/problems/hangman/dictionary.zip
+	unzip dictionary.zip
 
 The Lexicon class should implement two methods: the `__init__(self)` method for creating a Lexicon, a `get_words(self, length)` to extract words of a specific length to play Hangman. The structure of your code should be as follows.
 
@@ -137,9 +143,9 @@ The Lexicon class should implement two methods: the `__init__(self)` method for 
 
 Before we move on to the next step, we want to test if the class is working correctly. For example, try to get words of length 8 and see if the result seems reasonable. Start Python *interactively* using:
 
-	python -i
+	python
 
-Now, in the prompt that appears, run `import hangman`, which will *import* your python program. If you followed step 0 correctly, it should just load the Lexicon class and do nothing else. Then you could try some of the following.
+Now, in the prompt that appears, enter `import hangman`, which will *import* your python program. If you followed step 0 correctly, it should just load the Lexicon class and do nothing else. Then you could try some of the following.
 
 	lex = Lexicon()
 	words = lex.get_words(8)
@@ -229,7 +235,7 @@ Don't explicitly enumerate all potential new patterns. If you are working with a
 
 Let's test our game logic. We should be able to start a new game, and repeatedly guess letters. This is a perfect opportunity to use the `__str__` method, which gives us basics stats about the game --- which we use to verify its state.
 
-Again, test your game interactively by running `python -i` and then `import hangman`, and entering the following commands, or a variation thereof:
+Again, test your game interactively by running `python` and then `import hangman`, and entering the following commands, or a variation thereof:
 
 	game = Hangman(8, 6)
 	game.guess("e")
