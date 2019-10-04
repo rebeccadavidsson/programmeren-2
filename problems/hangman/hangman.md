@@ -136,7 +136,6 @@ The Lexicon class should implement two methods: the `__init__(self)` method for 
 
         def get_words(self, length):
             # Return all words from the dictionary of the given length.
-            # Try doing this with a generator expression to filter the words.
             pass
 
 ### 2. Testing the `Lexicon`
@@ -312,7 +311,7 @@ Note that the program shown in the introduction at the top of the assignment is 
 
 ## Testing
 
-	check50 hangman@minprog/cs50
+	check50 minprog/cs50x/2019/hangman
 
 ## Extensions
 
