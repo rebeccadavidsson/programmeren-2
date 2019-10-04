@@ -357,7 +357,7 @@ Code from lecture can be found on [Github](https://github.com/cs50/lectures/tree
 *   Now we can revisit `resize.py`, and it might make more sense to us now:
 
         from PIL import Image
-        from sys import argv
+        import sys
 
         if len(sys.argv) != 4:
             sys.exit("Usage: python resize.py n infile outfile")
