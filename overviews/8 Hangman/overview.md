@@ -37,7 +37,7 @@ Log into <https://ide.cs50.io/> and execute the below in a terminal window.
 
     - Intro to object-oriented programming in Python, [part 1](https://www.youtube.com/watch?v=wYYzteRKU7U)
 
-    - Optionally, intro to object-oriented programming in Python, [part 2](https://www.youtube.com/watch?v=wYYzteRKU7U)
+    - Optionally, intro to object-oriented programming in Python, [part 2](https://www.youtube.com/watch?v=Umpt43ZzmqM)
 
 1. Implement [Evil Hangman](/problems/hangman).
 
