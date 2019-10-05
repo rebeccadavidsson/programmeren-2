@@ -35,7 +35,12 @@ grades:
     similarities: *fullyauto
     survey: *fullyauto
 
-    m6: *manual
+    m6:
+        type: pass
+        subgrades:
+            checked: boolean
+        calculation: checked.to_i
+        hide_calculated: true
     m7: *manual
     m8: *manual
     m9: *manual
