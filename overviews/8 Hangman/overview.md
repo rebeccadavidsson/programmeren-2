@@ -2,36 +2,46 @@
 
 In this module, you'll implement a game while learning about object-oriented programming. This style of programming isn't available in C, but in Python, many people use it!
 
+
 ## Help
 
-For information on (or help with) this week:
+For information on (or help with) this module:
 
-4. Ask questions during office hours using the "Ask" tool on this website.
+1. Attend your mentor's section meeting.
 
-5. Visit (or e-mail) the course's heads.
+2. Ask questions during office hours using the "Ask" tool on this website.
 
-## Academic Honesty
+3. Visit (or e-mail) the course's heads.
+{: start="0"}
 
-Do keep in mind the course's policy on [academic honesty](/syllabus#academic_honesty) (like plagiarism), particularly its ["regret clause"](/syllabus#regret).
 
-## Getting Started
+## Grading
 
-Alright, here we go again!
+As soon as you have submitted working solutions for all problems below, your mentor will assess your programs, assign a grade for "quality", and provide you with some written feedback. This week, your programs will be primarily graded on:
 
-Log into <https://ide.cs50.io/> and execute the below in a terminal window.
+- [Magic numbers](/quality/magic-numbers)
+- [Loops](/quality/loops)
+- [Duplication](/quality/duplication)
+- [Nesting](/quality/nesting)
 
-    mkdir ~/module8/
-    cd ~/module8/
+And we'll also take these into account from last week: [comments](/quality/comments), [naming](/quality/naming), [indentation](/quality/indentation), [whitespace](/quality/whitespace).
+
 
 ## What to Do
+
+#### 1. Preparation
 
 1. Watch a video about [the idea](https://www.lynda.com/Python-tutorials/Object-oriented-thinking/731735/5002881-4.html) behind object-oriented programming.
 
 1. Watch a video about the basics of [object-oriented programming](https://www.youtube.com/watch?v=apACNr7DC_s).
 
+#### 2. Game of Cards
+
 1. If you haven't yet, create an account at [GitHub](https://github.com/join). For now, you'll only need it to access the Game of Cards exercises, but in later courses you'll be submitting your programs on this website!
 
 1. Practice with [Game of Cards](https://lab.cs50.io/minprog/programmeren-2/master/problems/cards/lab).
+
+#### 3. More preparation
 
 1. Watch:
 
@@ -41,19 +51,12 @@ Log into <https://ide.cs50.io/> and execute the below in a terminal window.
 
 1. Implement [Evil Hangman](/problems/hangman).
 
+#### 4. Submit
+
+You can submit your solutions on the problem pages linked above. Before submitting, keep in mind the course's policy on [academic honesty](/syllabus#samenwerken-fraude-en-plagiaat) (like plagiarism).
+
+
 ## Reference
 
-- [Python](https://www.youtube.com/watch?v=mgBpcQRDtl0)
-
-
-## How to Submit
-
-1. When ready to submit, log into [CS50 IDE](https://cs50.io/).
-
-2. Download your `.py` files.
-
-3. Make sure you are signed in to this website!
-
-4. In the form below the problem, add the file that you downloaded.
-
-5. Press "Submit for grading". Presto!
+- Get more details about [Python](https://www.youtube.com/watch?v=mgBpcQRDtl0)
+- Learn about [Object IDs](https://www.lynda.com/Python-tutorials/Naming-objects/418249/459118-4.html)

@@ -1,10 +1,26 @@
 Parttime:
     Module 6 - Homepage:
         Overview & Grading: /overviews/homepage
+        "Lecture: HTTP": /lectures/http
+        Implement Homepage: /problems/homepage
     Module 7 - Python:
         Overview & Grading: /overviews/python
+        "Lecture: Python": /lectures/python
+        Implement Sentimental: /problems/sentimental
+        Implement Bleep: /problems/bleep
     Module 8 - Hangman:
         Overview & Grading: /overviews/hangman
+        Preparation:
+            "Video: Main ideas": https://www.lynda.com/Python-tutorials/Object-oriented-thinking/731735/5002881-4.html
+            "Video: Basics": https://www.youtube.com/watch?v=apACNr7DC_s
+        Game of Cards:
+            Register at GitHub: https://github.com/join
+            Implmenent Game of Cards: https://lab.cs50.io/minprog/programmeren-2/master/problems/cards/lab
+        More preparation:
+            "Video: Details 1": https://www.youtube.com/watch?v=wYYzteRKU7U
+            "Video: Details 2": https://www.youtube.com/watch?v=Umpt43ZzmqM
+        Hangman:
+            Implement Hangman: /problems/hangman
     Module 9 - Adventure:
         Overview & Grading: /overviews/adventure
     Module 10 - Web:
@@ -21,3 +37,14 @@ Fulltime:
         Implement Bleep: /problems/bleep
     Module 8 - Hangman:
         Overview & Grading: /overviews/hangman
+        Preparation:
+            "Video: Main ideas": https://www.lynda.com/Python-tutorials/Object-oriented-thinking/731735/5002881-4.html
+            "Video: Basics": https://www.youtube.com/watch?v=apACNr7DC_s
+        Game of Cards:
+            Register at GitHub: https://github.com/join
+            Implmenent Game of Cards: https://lab.cs50.io/minprog/programmeren-2/master/problems/cards/lab
+        More preparation:
+            "Video: Details 1": https://www.youtube.com/watch?v=wYYzteRKU7U
+            "Video: Details 2": https://www.youtube.com/watch?v=Umpt43ZzmqM
+        Hangman:
+            Implement Hangman: /problems/hangman
