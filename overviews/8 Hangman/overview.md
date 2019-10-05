@@ -43,11 +43,11 @@ And we'll also take these into account from last week: [comments](/quality/comme
 
 #### 3. More preparation
 
-1. Watch:
+Watch:
 
-    - Intro to object-oriented programming in Python, [part 1](https://www.youtube.com/watch?v=wYYzteRKU7U)
+- Intro to object-oriented programming in Python, [part 1](https://www.youtube.com/watch?v=wYYzteRKU7U)
 
-    - Optionally, intro to object-oriented programming in Python, [part 2](https://www.youtube.com/watch?v=Umpt43ZzmqM)
+- Optionally, intro to object-oriented programming in Python, [part 2](https://www.youtube.com/watch?v=Umpt43ZzmqM)
 
 #### 4. Hangman
 
