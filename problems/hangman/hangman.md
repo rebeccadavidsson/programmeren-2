@@ -135,8 +135,10 @@ The Lexicon class should implement two methods: the `__init__(self)` method for 
             pass
 
         def get_words(self, length):
-            # Return all words from the dictionary of the given length.
+            # Return a list of all words from the dictionary of the given length.
             pass
+
+> Note that the loading of words was demonstrated in last week's Python lecture!
 
 ### 2. Testing the `Lexicon`
 
