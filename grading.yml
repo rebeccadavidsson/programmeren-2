@@ -22,12 +22,7 @@ templates:
         hide_calculated: true
 
 grades:
-    homepage:
-        type: pass
-        subgrades:
-            checked: boolean
-        calculation: checked.to_i
-        hide_calculated: true
+    homepage: *fullyauto
     sentimental: *fullyauto
     bleep: *fullyauto
     hangman: *fullyauto
