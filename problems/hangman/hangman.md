@@ -146,7 +146,7 @@ Before we move on to the next step, we want to test if the class is working corr
 
 	python
 
-Now, in the prompt that appears, enter `import hangman`, which will *import* your python program. If you followed step 0 correctly, it should just load the Lexicon class and do nothing else. Then you could try some of the following.
+Now, in the prompt that appears, enter `from hangman import *`, which will *import* your python program. If you followed step 0 correctly, it should just load the Lexicon class and do nothing else. Then you could try some of the following.
 
 	lex = Lexicon()
 	words = lex.get_words(8)
@@ -236,7 +236,7 @@ Don't explicitly enumerate all potential new patterns. If you are working with a
 
 Let's test our game logic. We should be able to start a new game, and repeatedly guess letters. This is a perfect opportunity to use the `__str__` method, which gives us basics stats about the game --- which we use to verify its state.
 
-Again, test your game interactively by running `python` and then `import hangman`, and entering the following commands, or a variation thereof:
+Again, test your game interactively by running `python` and then `from hangman import *`, and entering the following commands, or a variation thereof:
 
 	game = Hangman(8, 6)
 	game.guess("e")
