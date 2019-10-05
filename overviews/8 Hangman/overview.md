@@ -49,9 +49,11 @@ And we'll also take these into account from last week: [comments](/quality/comme
 
     - Optionally, intro to object-oriented programming in Python, [part 2](https://www.youtube.com/watch?v=Umpt43ZzmqM)
 
-1. Implement [Evil Hangman](/problems/hangman).
+#### 4. Hangman
 
-#### 4. Submit
+Implement [Evil Hangman](/problems/hangman).
+
+#### 5. Submit
 
 You can submit your solutions on the problem pages linked above. Before submitting, keep in mind the course's policy on [academic honesty](/syllabus#samenwerken-fraude-en-plagiaat) (like plagiarism).
 
