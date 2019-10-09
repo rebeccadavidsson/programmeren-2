@@ -202,10 +202,12 @@ and enter the following commands, or a variation thereof:
     game.guess("u")
     print(game)
 
+Does it all seem reasonable? Feel free to add a `print` somewhere to debug your code (for example, to show the chosen random word as the game starts). As long as you remove the prints before going to the next section!
+
 
 ### 5. Winning
 
-A user should be able to win or lose the game, and our computer version should be able to notice if a game has been won or lost. Let's add a few methods to the `Hangman` class:
+A user should be able to win or lose the game, and our computer version should be able to check if a game has been won or lost. Let's add a few methods to the `Hangman` class:
 
     def won(self):
         # Return True if the game is finished and the player has won, 
@@ -219,13 +221,13 @@ When has the game been won? Think about it. You should be able to program this m
         # otherwise False.
         # TODO
 
-And for this method the same applies: you should be able to calculate if the game has been lost by checking the number of previously guessed letters, and comparing with `self.num_guesses`.
+And for this method the same applies: you should be able to calculate if the game has been lost by checking the number of previously guessed letters, and comparing to `self.num_guesses`.
 
     def finished(self):
         # Return True if the game is finished, otherwise False.
         # TODO
 
-Finally, `finished` is a neutral function. It may be used to check if any more input is allowed. If the game has either been lost or won, it is also finished. So feel free to use the `lost()` and `won()` methods to decide!
+Finally, `finished` may be used to check if any more input is allowed. If the game has either been lost or won, it is also finished. So feel free to use the `lost()` and `won()` methods to decide!
 
 
 ### 6. Testing the `Hangman` game again
@@ -242,15 +244,22 @@ and enter the following commands, or a variation thereof:
     game.guess("a")
 	print(game)
     print(game.finished())
-    print(game.consistent_word())
-    print(game.pattern())
     game.guess("o")
     game.guess("i")
     game.guess("u")
-    print(game.pattern())
     print(game)
 
-### Intermezzo: handling exceptions
+For automatic testing, we'd like to gain a more in-depth look into your algorithms. Add the following method, which should provide upon request the full list of previously guessed letters, in order:
+
+    def guessed_string(self):
+        # Produce a string of all letters guessed so far, in the order they
+        # were guessed.
+        # TODO
+
+
+
+
+### 7. Handling exceptions
 
 What happens when you want to create a Hangman game that does not follow the specifications? For example, what should happen if someone uses your class like the following:
 
@@ -279,10 +288,10 @@ In order for your Hangman class to be easy to work with, it should deal with wro
                 raise Exception("You need at least one guess to play Hangman.")
             # ... and here follows other code.
 
-Note that `check50` for this problem expects that such checks, with accompanying exceptions, are present in your code!
+Note that `check50` for this problem expects that such checks, with accompanying exceptions, are present in your code! In particular, you should also handle invalid input for the `guess()` method, as specified by `check50`.
 
 
-### 5. Implementing user interaction
+### 8. Implementing user interaction
 
 While the `Hangman` class has all you need to play Hangman, someone who does not know your program won't understand that you have to write things like `game = Hangman(8, 6)` to start a game and `game.guess("e")` to guess a letter. So, let's make a **user interface**.
 
@@ -309,26 +318,11 @@ Your user interface should at least:
 
 Like in "Game of Cards", the game code should be added inside an `if __name__ == '__main__':` condition. This ensures that that code will not run when checking, but will run when you test the program yourself using `python hangman.py`.
 
-> Note that the program shown in the introduction at the top of the assignment is not a valid solution; it is just an illustration.
 
 ## Testing
 
 	check50 minprog/cs50x/2019/hangman
 
-## Extensions
-
-The algorithm outlined in this handout is by no means optimal, and there are several cases in which it will make bad decisions. For example, suppose that a player has exactly one guess remaining and that computer has the following word list:
-
-	DEAL   TEAR   MONK
-
-If the player guesses the letter 'E' here, the computer will notice that the word family for the pattern `-E--` has two elements and the word family for the pattern `----` has just one. Consequently, it will pick the family containing DEAL and TEAR, revealing an E and giving the player another chance to guess. However, since the player has only one guess left, a much better decision would be to pick the family `----` containing MONK, causing the player to lose the game.
-
-There are several other places in which the algorithm does not function ideally. For example, suppose that after the player guesses a letter, you find that there are two word families, the family `--E-` containing 10,000 words and the family `----` containing 9,000 words. Which family should the computer pick? If the computer picks the first family, it will end up with more words, but because it revealed a letter the player will have more chances to guess the words that are left. On the other hand, if the computer picks the family `----`, the computer will have fewer words left but the player will have fewer guesses as well. More generally, picking the largest word family is not necessarily the best way to cause the player to lose. Often, picking a smaller family will be better.
-
-After you implement this assignment, take some time to think over possible improvements to the algorithm. You might weight the word families using some metric other than size. You might consider
-having the computer "look ahead" a step or two by considering what actions it might take in the future.
-
-If you implement something interesting, make sure to document your partition method well by describing your changes in detail!
 
 ## Submitting
 
