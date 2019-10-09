@@ -159,12 +159,13 @@ Now, in the prompt that appears, enter `from hangman import *`, which will *impo
 	print(words.pop())
 	print(words.pop())
 
-> Note that the `pop` method for a list removes the last element from the list and returns it. So `print(words.pop())` removes the last element from the list of length-8 words and prints it.
+Note that the `pop` method for a list removes the last element from the list and returns it. So `print(words.pop())` removes the last element from the list of length-8 words and prints it.
 
 Check if everything is in order. Is the number of words reasonable? It should be more than 10000 for length 8? Are each of the three random words actually 8 letters long? To add to this, in the description above, you can find some oddities that you might verify, too (e.g. how many words are there of length 27?).
 
-> You should not put testing code like the above in `hangman.py` as you might have done in earlier assignments. This is because `check50` should be able to load your program and perform its own tests. Your tests would interfere with the checks. `check50` needs to be able to `import` each class without side-effects: in other words, there should be no (testing) code left below the program. As with "Game of Cards", any testing code should be added inside an `if __name__ == '__main__':` condition. This ensures that that code will not run when checking, but will run when you test the program yourself using `python ...`.
+> You should not put testing code like the above in `hangman.py` as you might have done in earlier assignments. This is because `check50` should be able to load your program and perform its own tests. Your tests would interfere with the checks.
 
+You can now test using `check50` for the first time!
 
 ### 3. The `Hangman` class
 
@@ -318,7 +319,9 @@ Your user interface should at least:
        tell the player the Hangman word (any word that is consistent with the
        current pattern). Then ask the player if she wants to play again.
 
-Note that the program shown in the introduction at the top of the assignment is not a valid solution; it is just an illustration.
+Like in "Game of Cards", the game code should be added inside an `if __name__ == '__main__':` condition. This ensures that that code will not run when checking, but will run when you test the program yourself using `python hangman.py`.
+
+> Note that the program shown in the introduction at the top of the assignment is not a valid solution; it is just an illustration.
 
 ## Testing
 
