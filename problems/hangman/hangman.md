@@ -115,11 +115,9 @@ Finally, here are some general tips and tricks that might be useful:
 
 Testing for this assignment will again work automatically. Because you are going to write classes, it is now possible to test each class's functionality separately from the other parts of the program.
 
-When writing the classes, you should take this into account. `check50` needs to be able to `import` each class without side-effects: in other words, there should be no (testing) code left below the program. As with "Game of Cards", any testing code should be added inside an `if __name__ == '__main__':` condition. This ensures that that code will not run when checking, but will run when you test the program yourself using `python ...`.
-
 ### 1. The `Lexicon` class
 
-The first thing to implement is a class called `Lexicon` in a file called `hangman.py`, which has the responsibility of managing the full word list and extracting words of a given length. It can be loaded once and asked for words whenever a new game is started.
+The first thing to implement is a class called `Lexicon`, which has the responsibility of managing the full word list and extracting words of a given length. It can be loaded once and asked for words whenever a new game is started.
 
 Download the lexicons via:
 
@@ -127,18 +125,20 @@ Download the lexicons via:
 	wget https://prog2.mprog.nl/course/problems/hangman/dictionaries.zip
 	unzip dictionary.zip
 
-The Lexicon class should implement two methods: the `__init__(self)` method for creating a Lexicon, a `get_words(self, length)` to extract words of a specific length to play Hangman. The structure of your code should be as follows.
+Create a file called `hangman.py` and add a `Lexicon` class. This class should have two methods: `__init__(self)` to initialize, and `get_words(self, length)` to extract a list of words with a  specific length to play Hangman:
 
     class Lexicon:
         def __init__(self):
             # Load the dictionary of words.
-            pass
+            TODO
 
         def get_words(self, length):
             # Return a list of all words from the dictionary of the given length.
-            pass
+            TODO
 
-> Note that the loading of words was demonstrated in last week's Python lecture!
+Implement those methods.
+
+> Note that the loading of words was demonstrated in last week's [Python lecture](/lectures/python)!
 
 ### 2. Testing the `Lexicon`
 
@@ -156,6 +156,9 @@ Now, in the prompt that appears, enter `from hangman import *`, which will *impo
 	print(words.pop())
 
 Check if everything is in order. Is the number of words reasonable? Are each of the three random words actually 8 letters long? To add to this, in the description above, you can find some oddities that you might verify, too (e.g. how many words are there of length 27?).
+
+> You should not put testing code like the above in `hangman.py` as you might have done in earlier assignments. This is because `check50` should be able to load your program and perform its own tests. Your tests would interfere with the checks. `check50` needs to be able to `import` each class without side-effects: in other words, there should be no (testing) code left below the program. As with "Game of Cards", any testing code should be added inside an `if __name__ == '__main__':` condition. This ensures that that code will not run when checking, but will run when you test the program yourself using `python ...`.
+
 
 ### 3. The `Hangman` class
 
