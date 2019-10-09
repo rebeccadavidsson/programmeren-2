@@ -155,7 +155,7 @@ So that specifies how the class should work when testing. Here's a minimal skele
             # is added to the pattern, return False if it is not.
             # TODO
 
-        def __str__(self):
+        def pattern(self):
             # Return a nice version of the pattern, for printing.
             # TODO
 
@@ -179,7 +179,7 @@ For the `guess` method:
 
 2.  you need to make sure that you `return` either True or False depending on whether the letter was indeed found in the word (at least once).
 
-For the `__str__` method:
+For the `pattern` method:
 
 1.  you need to create a string version of the pattern, because it's an ugly list. When printing, it should be nicely readable. In this case, feel free to use an internet search for [list to string python](https://duckduckgo.com/?q=list+to+string+python).
 
@@ -194,13 +194,13 @@ and enter the following commands, or a variation thereof:
 
 	game = Hangman(8, 6)
 	game.guess("e")
-	print(game)
+	print(game.pattern())
     game.guess("a")
-	print(game)
+	print(game.pattern())
     game.guess("o")
     game.guess("i")
     game.guess("u")
-    print(game)
+	print(game.pattern())
 
 Does it all seem reasonable? Feel free to add a `print` somewhere to debug your code (for example, to show the chosen random word as the game starts). As long as you remove the prints before going to the next section!
 
@@ -301,16 +301,12 @@ Your user interface should at least:
 
 2. Prompt the user for how many guesses she should get until she loses. This should be a positive integer.
 
-3. Prompt the user for whether she wants to see detailed statistics of the game while playing (the statistics you put into the `__str__` method).
-
 4. Play the game: repeatedly do the following
 
     1. Prompt the user for a guess. The guess should be a single letter that
        has not yet been guessed.
 
     2. Show an updated pattern, and the number of guesses remaining.
-
-    3. Show detailed game statistics, if she asked for those.
 
     4. If the game has finished, either congratulate the player (on a win), or
        tell the player the Hangman word (any word that is consistent with the
