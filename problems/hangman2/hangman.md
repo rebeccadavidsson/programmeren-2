@@ -127,6 +127,8 @@ Check if everything is in order. Are the words reasonable, i.e., of the right le
 
 You can now test using `check50` for the first time!
 
+	check50 minprog/cs50x/2019/hangman
+
 ### 3. The `Hangman` class
 
 So now we have a class to manage the word list. We can also create a class that manages playing a game of Hangman. Let's think about what is needed to "play" a game.
@@ -159,27 +161,27 @@ So that specifies how the class should work when testing. Here's a minimal skele
 
 To implement it, consider the following:
 
--  For the initializer:
+For the initializer:
 
-    1.  you need to create a variable to contain the random word. You should instantiate a Lexicon object and ask it for that word.
+1.  you need to create a variable to contain the random word. You should instantiate a Lexicon object and ask it for that word.
 
-    2.  you need a variable to hold the "pattern" of guessed letters. Initially, this should simply be an array of N underscores, where N is the chosen word length. For example, if the length is 4, the empty pattern should be the array ["_", "_", "_", "_"].
+2.  you need a variable to hold the "pattern" of guessed letters. Initially, this should simply be an array of N underscores, where N is the chosen word length. For example, if the length is 4, the empty pattern should be the array `["_", "_", "_", "_"]`.
 
-    3.  you need a variable to hold the letters that have been guessed. For the same reason as above, you should use an array, adding guessed letters as the game progresses.
+3.  you need a variable to hold the letters that have been guessed. For the same reason as above, you should use an array, adding guessed letters as the game progresses.
 
-        > We choose an array here instead of a string because the array is **mutable**. We would like to add guessed letters to the pattern as the game progresses, so we need to mutate (change) the array.
+    > We choose an array here instead of a string because the array is **mutable**. We would like to add guessed letters to the pattern as the game progresses, so we need to mutate (change) the array.
 
-- For the `guess` method:
+For the `guess` method:
 
-    1.  you need to add the letter to the list of "guessed" letters, so we keep track of all earlier guesses.
+1.  you need to add the letter to the list of "guessed" letters, so we keep track of all earlier guesses.
 
-    1.  you need to see if the chosen letter occurs somewhere in the random word. The letter may occur more than once! Wherever it occurs, that letter should replace the `_` in the pattern.
+1.  you need to see if the chosen letter occurs somewhere in the random word. The letter may occur more than once! Wherever it occurs, that letter should replace the `_` in the pattern.
 
-    2.  you need to make sure that you `return` either True or False depending on whether the letter was indeed found in the word (at least once).
+2.  you need to make sure that you `return` either True or False depending on whether the letter was indeed found in the word (at least once).
 
-- For the `__str__` method:
+For the `__str__` method:
 
-    1.  you need to create a string version of the pattern, because it's an ugly list. When printing, it should be nicely readable. In this case, feel free to use an internet search for [list to string python](https://duckduckgo.com/?q=list+to+string+python).
+1.  you need to create a string version of the pattern, because it's an ugly list. When printing, it should be nicely readable. In this case, feel free to use an internet search for [list to string python](https://duckduckgo.com/?q=list+to+string+python).
 
 
 ### 4. Testing the `Hangman` game
