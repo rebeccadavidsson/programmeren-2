@@ -1,4 +1,4 @@
-# Hangman
+# Evil Hangman
 
 ## tl;dr
 
