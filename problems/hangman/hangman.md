@@ -125,10 +125,12 @@ Download the lexicons via:
 	wget https://prog2.mprog.nl/course/problems/hangman/dictionaries.zip
 	unzip dictionary.zip
 
-Create a file called `hangman.py` and add a `Lexicon` class. This class should have two methods: `__init__(self)` to initialize, and `get_words(self, length)` to extract a list of words with a  specific length to play Hangman:
+Create a file called `hangman.py` and add a `Lexicon` class. This class should have two methods: `__init__()` to initialize, and `get_words()` to extract a list of words with a  specific length to play Hangman:
 
     class Lexicon:
+
         def __init__(self):
+            self.words = []
             # Load the dictionary of words.
             TODO
 
@@ -136,9 +138,11 @@ Create a file called `hangman.py` and add a `Lexicon` class. This class should h
             # Return a list of all words from the dictionary of the given length.
             TODO
 
-Implement those methods.
+In our code, we will use a **list** to store the master word list. That's why we have `self.words = []` at the top of the initializer method.
 
-> Note that the loading of words was demonstrated in last week's [Python lecture](/lectures/python)!
+Now, implement those two methods.
+
+> Note that the loading of words was demonstrated in last week's [Python lecture](/lectures/python)! It uses a **set** to store words, but you can modify it to use a list instead. Recall how to add items to a list?
 
 ### 2. Testing the `Lexicon`
 
@@ -155,7 +159,9 @@ Now, in the prompt that appears, enter `from hangman import *`, which will *impo
 	print(words.pop())
 	print(words.pop())
 
-Check if everything is in order. Is the number of words reasonable? Are each of the three random words actually 8 letters long? To add to this, in the description above, you can find some oddities that you might verify, too (e.g. how many words are there of length 27?).
+> Note that the `pop` method for a list removes the last element from the list and returns it. So `print(words.pop())` removes the last element from the list of length-8 words and prints it.
+
+Check if everything is in order. Is the number of words reasonable? It should be more than 10000 for length 8? Are each of the three random words actually 8 letters long? To add to this, in the description above, you can find some oddities that you might verify, too (e.g. how many words are there of length 27?).
 
 > You should not put testing code like the above in `hangman.py` as you might have done in earlier assignments. This is because `check50` should be able to load your program and perform its own tests. Your tests would interfere with the checks. `check50` needs to be able to `import` each class without side-effects: in other words, there should be no (testing) code left below the program. As with "Game of Cards", any testing code should be added inside an `if __name__ == '__main__':` condition. This ensures that that code will not run when checking, but will run when you test the program yourself using `python ...`.
 
