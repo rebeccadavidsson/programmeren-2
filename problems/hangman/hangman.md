@@ -148,9 +148,9 @@ Now, implement those two methods.
 
 Before we move on to the next step, we want to test if the class is working correctly. For example, try to get words of length 8 and see if the result seems reasonable. Start Python *interactively* using:
 
-	python
+	python -i hangman.py
 
-Now, in the prompt that appears, enter `from hangman import *`, which will *import* your python program. If you followed step 0 correctly, it should just load the Lexicon class and do nothing else. Then you could try some of the following.
+If you followed step 0 correctly, it should just load the Lexicon class and do nothing else. Then you could try some of the following.
 
 	lex = Lexicon()
 	words = lex.get_words(8)
@@ -169,31 +169,13 @@ You can now test using `check50` for the first time!
 
 ### 3. The `Hangman` class
 
-As much as possible, we would like to gather all game "logic" into a single class called `Hangman`. We should be able to create a new game simply by instantiating the class. For example, `game = Hangman(length=8, num_guesses=5)` for a new game using 8-letter words, where you lose after 5 failed guesses.
+So now we have a class to manage the master word list. We can also create a class that manages playing a game of Hangman. Let's think about what is needed to "play" a game.
 
-After instantiating a new game, the resulting object should be able to respond to the following actions:
+First of all, a game is played based on a particular word length. Also, we decide upfront how many guesses will be allowed. These two are the only pieces of information that a Hangman game object needs to get started. This means that we know how it may be eventually initialized:
 
-- Guessing a letter
-- Producing the current pattern
-- Producing the letters that have been guessed so far
-- Producing a word that is consistent with the current pattern (to display to the user once the game has been lost)
-- Checking if the game is finished
-- Checking if the game has been won
-- Checking if the game has been lost
+    game = Hangman(length=8, num_guesses=5)
 
-To fully implement the game, the object should at least take care of tracking:
-
-- Guessed letters up until now
-- The set of currently remaining words
-- The number of guesses remaining
-
-Note that you can track other things, like the total number of guesses, or the current pattern (even though this is implicit in the word list and the guessed letters).
-
-Purely for testing purposes, we would like to implement the `__str__` method, which allows us to call `print(game)` and look at a couple of stats. The resulting print could look something like the following:
-
-	letters guessed are "aemnid", 201 words remaining, game not won
-
-In other words, your code should follow the following structure. It is up to you to fill in the methods.
+Your code should follow the following structure. It is up to you to fill in the methods.
 
     class Hangman:
         def __init__(self, length, num_guesses):
@@ -208,6 +190,7 @@ In other words, your code should follow the following structure. It is up to you
         def pattern(self):
             # Return a string of the current game pattern. Use underscores in 
             # place of missing letters. Example: "_AN_MAN".
+            pass
 
         def guessed_string(self):
             # Produce a string of all letters guessed so far, in the order they
@@ -236,7 +219,28 @@ In other words, your code should follow the following structure. It is up to you
             # Return a string representation of the game with some relevant
             # statistics.
             pass
-            
+
+After instantiating a new game, the resulting object should be able to respond to the following actions:
+
+- Guessing a letter
+- Producing the current pattern
+- Producing the letters that have been guessed so far
+- Producing a word that is consistent with the current pattern (to display to the user once the game has been lost)
+- Checking if the game is finished
+- Checking if the game has been won
+- Checking if the game has been lost
+
+To fully implement the game, the object should at least take care of tracking:
+
+- Guessed letters up until now
+- The set of currently remaining words
+- The number of guesses remaining
+
+Note that you can track other things, like the total number of guesses, or the current pattern (even though this is implicit in the word list and the guessed letters).
+
+Purely for testing purposes, we would like to implement the `__str__` method, which allows us to call `print(game)` and look at a couple of stats. The resulting print could look something like the following:
+
+	letters guessed are "aemnid", 201 words remaining, game not won
 
 It's up to you to think about how you want to partition words into word families. Think about what data structures would be best for tracking word families and the master word list. Would an associative array work? How about a stack or queue? Thinking through the design before you start coding will save you a lot of time and headache.
 
