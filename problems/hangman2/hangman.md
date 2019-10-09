@@ -256,7 +256,7 @@ For automatic testing, we'd like to gain a more in-depth look into your algorith
         # were guessed.
         # TODO
 
-
+And having done that, this may be an excellent time to run `check50` again!
 
 
 ### 7. Handling exceptions
