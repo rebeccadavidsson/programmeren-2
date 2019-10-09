@@ -2,7 +2,7 @@
 
 ## tl;dr
 
-Implement a program that allows someone to play Evil Hangman against the computer.
+Implement a program that allows someone to play Lovely Hangman against the computer.
 
 	$ python hangman.py
 	WELCOME TO LOVELY HANGMAN ツ
