@@ -148,16 +148,16 @@ So that specifies how the class should work when testing. Here's a minimal skele
             # Initialize game by choosing a word and creating an empty pattern.
             self.length = length
             self.num_guesses = num_guesses
-            TODO
+            # TODO
 
         def guess(self, letter):
             # Update the game for a guess of letter. Return True if the letter
             # is added to the pattern, return False if it is not.
-            TODO
+            # TODO
 
         def __str__(self):
             # Return a nice version of the pattern, for printing.
-            TODO
+            # TODO
 
 To implement it, consider the following:
 
@@ -214,20 +214,20 @@ A user should be able to win or lose the game, and our computer version should b
     def won(self):
         # Return True if the game is finished and the player has won, 
         # otherwise False.
-        pass
+        # TODO
 
 When has the game been won? Think about it. You should be able to program this method without introducing new `self` variables, but instead, calculating if the game has been won by checking out the letters in `self.guessed`.
 
     def lost(self):
         # Return True if the game is finished and the player has lost, 
         # otherwise False.
-        pass
+        # TODO
 
 And for this method the same applies: you should be able to calculate if the game has been lost by checking the number of previously guessed letters, and comparing with `self.num_guesses`.
 
     def finished(self):
         # Return True if the game is finished, otherwise False.
-        pass
+        # TODO
 
 Finally, `finished` is a neutral function. It may be used to check if any more input is allowed. If the game has either been lost or won, it is also finished. So feel free to use the `lost()` and `won()` methods to decide!
 
