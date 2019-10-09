@@ -167,9 +167,9 @@ For the initializer:
 
 2.  you need a variable to hold the "pattern" of guessed letters. Initially, this should simply be an array of N underscores, where N is the chosen word length. For example, if the length is 4, the empty pattern should be the array `["_", "_", "_", "_"]`.
 
-3.  you need a variable to hold the letters that have been guessed. For the same reason as above, you should use an array, adding guessed letters as the game progresses.
-
     > We choose an array here instead of a string because the array is **mutable**. We would like to add guessed letters to the pattern as the game progresses, so we need to mutate (change) the array.
+
+3.  you need a variable to hold the letters that have been guessed. For the same reason as above, you should use an array, adding guessed letters as the game progresses.
 
 For the `guess` method:
 
