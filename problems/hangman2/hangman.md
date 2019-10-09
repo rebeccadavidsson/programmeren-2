@@ -197,13 +197,9 @@ and enter the following commands, or a variation thereof:
 	print(game)
     game.guess("a")
 	print(game)
-    print(game.finished())
-    print(game.consistent_word())
-    print(game.pattern())
     game.guess("o")
     game.guess("i")
     game.guess("u")
-    print(game.pattern())
     print(game)
 
 
@@ -245,11 +241,14 @@ and enter the following commands, or a variation thereof:
 	print(game)
     game.guess("a")
 	print(game)
+    print(game.finished())
+    print(game.consistent_word())
+    print(game.pattern())
     game.guess("o")
     game.guess("i")
     game.guess("u")
+    print(game.pattern())
     print(game)
-
 
 ### Intermezzo: handling exceptions
 
