@@ -127,7 +127,7 @@ Check if everything is in order. Are the words reasonable, i.e., of the right le
 
 You can now test using `check50` for the first time!
 
-	check50 minprog/cs50x/2019/hangman/lovely
+	check50 minprog/cs50x/2019/hangman/lovely --local
 
 ### 3. The `Hangman` class
 
@@ -317,7 +317,7 @@ Like in "Game of Cards", the game code should be added inside an `if __name__ ==
 
 ## Testing
 
-	check50 minprog/cs50x/2019/hangman/lovely
+	check50 minprog/cs50x/2019/hangman/lovely --local
 
 
 ## Submitting
