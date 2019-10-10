@@ -602,7 +602,7 @@ And finally, you may use the commands in this link:/course/problems/adventure/wi
 === `check50`
 
 ```
-check50 minprog/cs50x/2019/adventure/less
+check50 minprog/cs50x/2019/adventure/more
 ```
 
 === `style50`

@@ -3,8 +3,6 @@ files:
     required:
         - adventure.py
         - room.py
-        - inventory.py
-        - item.py
 check:
     tool: check50
-    slug: minprog/cs50x/2019/adventure
+    slug: minprog/cs50x/2019/adventure/less
