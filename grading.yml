@@ -27,7 +27,9 @@ grades:
     sentimental: *fullyauto
     bleep: *fullyauto
     hangman: *fullyauto
-    adventure: *fullyauto
+    hangman-lovely: *fullyauto
+    adventure-less: *fullyauto
+    adventure-more: *fullyauto
     similarities: *fullyauto
     survey: *fullyauto
 
@@ -49,8 +51,10 @@ modules:
         - bleep
     m8:
         - hangman
+        - hangman-lovely
     m9:
-        - adventure
+        - adventure-less
+        - adventure-more
     m10:
         - similarities
         - survey

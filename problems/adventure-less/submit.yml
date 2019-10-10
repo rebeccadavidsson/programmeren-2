@@ -1,4 +1,4 @@
-name: adventure
+name: adventure-less
 files:
     required:
         - adventure.py
