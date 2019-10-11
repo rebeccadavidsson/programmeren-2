@@ -120,8 +120,8 @@ So the statement
 creates a room with the following attributes:
 
 - `id`: 3,
-- `name`: 'Inside building', and
-- `description`: 'You are inside a building, a well house for a large spring.'.
+- `name`: `'Inside building'`, and
+- `description`: `'You are inside a building, a well house for a large spring.'`.
 
 The `Room` class contains two other methods, one for adding connections and one for checking connections, but you still have to implement them!
 
