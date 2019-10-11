@@ -90,9 +90,9 @@ Take a look at `adventure.py`. The file has three main components.
 
 		from room import Room
 
-	This line ensures that the `Room` class from `room.py` is available to use within `adventure.py`, so we can create `Room` objects for use in the adventure game. For example, the following call would create a `Room` object for you to use in Adventure:
+	This line ensures that the `Room` class from `room.py` is available to use within `adventure.py`, so we can create `Room` objects for use in the adventure game. For example, the following statement would create a `Room` object for you to use in Adventure:
 
-		Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
+		room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
 	Note that we did not include an import statement atop `room.py`. This is because `Room` does not need to know anything about the adventure game, only the other way around.
 
@@ -111,16 +111,19 @@ Take a look at `adventure.py`. The file has three main components.
 
 ### `room.py`
 
-This is your `Room` class, where al code related to rooms will be collected.
-The `\\__init__()` method initializes each room with a given id, name and description.
+As mentioned, this file contains the `Room` class definition, where al code related to rooms will be collected. The `__init__()` method initializes each room with an id, name and description.
 
-So the call from earlier;
+So the statement
 
-	Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
+	room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
-creates a room with `id` = 3, `name` = 'Inside building' and `description` = 'You are inside a building, a well house for a large spring.'.
+creates a room with:
 
-It also contains two methods, one for adding connections and one for checking connections, but you still have to implement them!
+	- `id`: 3,
+	- `name`: 'Inside building', and
+	- `description`: 'You are inside a building, a well house for a large spring.'.
+
+The `Room` class contains two other methods, one for adding connections and one for checking connections, but you still have to implement them!
 
 
 ## Step 0: Reading data files and the code
