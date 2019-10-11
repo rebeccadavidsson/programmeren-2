@@ -51,7 +51,11 @@ Watch:
 
 #### 4. Hangman
 
-Implement [Evil Hangman](/problems/hangman).
+Implement either of:
+
+- [Lovely Hangman](/problems/hangman2)
+
+- [Evil Hangman](/problems/hangman) (Hacker)
 
 #### 5. Submit
 
