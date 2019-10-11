@@ -77,9 +77,9 @@ Implement an object-oriented version of Crowther's Adventure game using the clas
 
 The `data` contains four datafiles with which you can create two versions of adventure:
 
-- `TinyRooms.txt` and `TinyItems.txt` together are the smallest adventure game, consisting of 3 rooms and 2 items. Great for starting out with!
+- `TinyRooms.txt` is the smallest adventure game, consisting of 3 rooms. Useful for testing purposes.
 
-- `SmallRooms.txt` and `SmallItems.txt` are a bit larger and include more advanced interactions.
+- `SmallRooms.txt` is a bit larger and includes more advanced interactions.
 
 
 ### `adventure.py`
