@@ -27,10 +27,10 @@ That first part of the adventure "map" may look like this:
 
 ![](map.png){:.w300}
 
-You can find the full map [at this website](http://www.spitenet.com/cave/), but note that you will be implementing a portion of the full map!
+You can find the full map, including a spoiler-free version, [at this website](http://www.spitenet.com/cave/), but note that you will be implementing a portion of the full map!
 
 But there is more than just navigating, at all times you can ask for `HELP` for an explanation of the game, or `LOOK` to get a detailed description of the room you are in.
-From the previous example you could see that the second time a room is entered a shorter description was shown. If we were to use look we would see the following:
+From the previous example you could see that the second time a room is entered a shorter description was shown. If we were to enter the `LOOK` command we would again see the following:
 
     > LOOK
     You are standing at the end of a road before a small brick
@@ -46,13 +46,16 @@ Though Crowther originally wrote his game in Fortran, an imperative programming 
 
 Implement an object-oriented version of Crowther's Adventure game using the class structure provided below. It should:
 
-* handle command line arguments to open the correct datafile
-* implement methods for loading data into objects
-* implement a method for moving the player
-* the game should prompt the user for commands and either execute those or warn about a non-existent command
-* the game should make use of the `Room` class
-* implement forced movements
-* the game must be winnable
+1. implement loading of the map:
+	* handling command line arguments to open a given datafile
+	* loading map data into a series of objects
+2. implement user interaction:
+	* prompting the user for commands and execute those
+	* warn about non-existent commands
+	* moving the player from room to room
+3. implement game logic:
+	* forced movements
+	* solving the game
 
 
 ### Distribution
