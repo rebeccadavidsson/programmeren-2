@@ -170,8 +170,7 @@ These are the definitions of all rooms in the game and how to navigate between t
 
 A `<routes>` line contains both a `<direction>` and an `<id>`. For example, room 2 is connected to room 1 by directions `EAST` and `DOWN`.
 
-You'll find that the name is actually a short description of the room, whereas the 'description' is fully descriptive (Keep this in mind for later parts of the game!).
-First we'll have to parse this data into our program. Since a room is a bit more complicated than a simple string or integer we have set you up with a class named Room in room.py.
+You'll find that the `<name>` is actually a short description of the room, whereas the `<description>` is longer.
 
 In adventure.py you'll find the `load_rooms` method. We'll discuss how it is implemented shortly, but first let's see where it is used.
 
