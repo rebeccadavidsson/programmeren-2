@@ -106,9 +106,7 @@ Take a look at `adventure.py`. The file has three main components.
 
 	- The `play` method contains the main loop that makes your game playable. One important part of this is translating commands given by your player into method calls that handle the actions. We've already given you a headstart here. See how we check if a command is a "direction" with which to move?
 
-3. The `if __name__ == "__main__"` part
-
-	This part is very short. We only include a line to create an `Adventure` object, which will start the game. Note, however, that this is the only place where you can change the name of the map that is loaded.
+3. The `if __name__ == "__main__"` part, which contains just one line of code. It creates an `Adventure` object, which will start the game. Note that this is the only place where you can change the name of the map that is loaded.
 
 
 ### `room.py`
