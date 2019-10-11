@@ -46,14 +46,14 @@ Though Crowther originally wrote his game in Fortran, an imperative programming 
 
 Implement an object-oriented version of Crowther's Adventure game using the class structure provided below. It should:
 
-1. implement loading of the map:
+1. implement **loading** of the map:
 	* handling command line arguments to open a given datafile
 	* loading map data into a series of objects
-2. implement user interaction:
+2. implement user **interaction**:
 	* prompting the user for commands and execute those
 	* warn about non-existent commands
 	* moving the player from room to room
-3. implement game logic:
+3. implement game **logic**:
 	* forced movements
 	* solving the game
 
