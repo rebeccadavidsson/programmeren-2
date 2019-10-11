@@ -39,6 +39,8 @@ From the previous example you could see that the second time a room is entered a
     to the west.
     >
 
+The adventure "map" is provided in a few **data files**, that contain room names and description, and in particular, which rooms are connected to other rooms, and using which commands.
+
 Though Crowther originally wrote his game in Fortran, an imperative programming language that has been around since the 1950s, we will be taking a more modern approach to its implementation, using object-oriented programming (OOP). OOP is particularly suited to Adventure, because its main idea is a series of rooms that are connected. Each room will be an object, and all of these objects will point to each other.
 
 
