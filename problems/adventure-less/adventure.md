@@ -57,7 +57,7 @@ Implement an object-oriented version of Crowther's Adventure game using the clas
 	* moving the player from room to room
 3. implement game **logic**:
 	* forced movements
-	* solving the game
+	* finishing the game
 
 
 ### Distribution
