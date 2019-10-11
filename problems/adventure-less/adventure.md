@@ -86,44 +86,43 @@ The `data` contains four datafiles with which you can create two versions of adv
 
 Take a look at `adventure.py`. The file has three main components.
 
-1. The `import` statement. Instead of working from a single file, we've split our two classes into separate files, in order to keep our files short and tidy. To be able to access the class from one file in the other, we have to import them:
+1. The `import` statement. Instead of working from a single file, we've split our two classes into separate files, in order to keep our files relatively short and tidy. To be able to access the Room class from the `adventure.py` file, we use `import`.
 
-		from room import Room
+	If you take a peek at `room.py`, you'll note that we did not include an import statement atop that file. This is because `Room` does not need to know anything about the adventure game, only the other way around.
 
-	This line ensures that the `Room` class from `room.py` is available to use within `adventure.py`, so we can create `Room` objects for use in the adventure game. For example, the following statement would create a `Room` object for you to use in Adventure:
+2. The biggest part of the file is the `Adventure` class, which contain all methods that make the game work.
 
-		room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
+	- The `__init__` method ensures that all is set for playing an adventure game. In particular, it uses the other methods to load game data, build a structure of rooms, and point `current_room` to the first room in the map.
 
-	Note that we did not include an import statement atop `room.py`. This is because `Room` does not need to know anything about the adventure game, only the other way around.
+	- The `parse_rooms` method opens and parses the data files, and the `load_rooms` method creates `Room` objects with that data.
 
-2. The `Adventure` class, which contain all methods that make the game work.
+	- The `game_over` method will eventually decide (calculate) if the game has been won or lost by the player.
 
-	- The `load_rooms` method is used to parse the data files and creates `Room` objects with that data.
+	- Moving around in the game is handled by the `move` method, by setting the "current" room to a different one.
 
-	- The `game_over` method will eventually decide if the game has been won or lost by the player.
-
-	- Moving around in the game is handled by the `move` method. Here you'll make use of the room objects you've created earlier.
-
-	- The `play` method contains the main loop that makes your game playable. One important part of this is translating commands given by your player into method calls that handle the actions. We've already given you a headstart here. See how we check if a command is a "direction" with which to move?
-
-3. The `if __name__ == "__main__"` part, which contains just one line of code. It creates an `Adventure` object, which will start the game. Note that this is the only place where you can change the name of the map that is loaded.
+3. The `if __name__ == "__main__"` part, which contains the main "game loop" of the program. After introducing the game, it repeatedly asks for a command from the user, and tries to perform that command. In the `while` statement, you see that the game will stop as soon as the `game_over()` method returns `True`.
 
 
 ### `room.py`
 
-As mentioned, this file contains the `Room` class definition, where al code related to rooms will be collected. The `__init__()` method initializes each room with an id, name and description.
+This file contains the `Room` class definition.
 
-So the statement
+1. The `__init__` method initializes a room with an id, name and description. For example, you should be able to create a `Room` object using the following syntax:
 
-	room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
+		room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
-creates a room with the following attributes:
+2. The `add_connection` method allows us to connect the room to a new one. We should be able to use it like this:
 
-- `id`: 3,
-- `name`: `'Inside building'`, and
-- `description`: `'You are inside a building, a well house for a large spring.'`.
+		some_other_room_object = Room(5, 'Outside', 'You are outside.')
+		room.add_connection("WEST", some_other_room_object)
 
-The `Room` class contains two other methods, one for adding connections and one for checking connections, but you still have to implement them!
+3. The `has_connection` method does nothing more than checking whether a connection is available in a particular direction. For example:
+
+		print(room.has_connection("WEST"))  # should print True, given step 2 above
+
+4. The `get_connection` method assumes the connection is there and returns the room object that may be found in that direction.
+
+		new_room = room.get_connection("WEST")  # should now be the "other" room
 
 
 ## Step 0: Reading data files and the code
@@ -210,10 +209,10 @@ Here you'll find your first TODO.
 ## Step 1: Loading connections and moving around
 
 First start with opening the correct datafile. Your program should accept a command line argument that is either "Tiny", "Small", or "Crowther" and no others.
-Use that argument for the `game` variable used in the `if \\__name__ == '\\__main__'` statement. Make sure to return an exit code of 1 if the argument is incorrect!
+Use that argument for the `game` variable used in the `if __name__ == '__main__'` statement. Make sure to return an exit code of 1 if the argument is incorrect!
 
 Now it's up to you to add the connections to each individual room object.
-To do so, you'll first have to head over to room.py and implement the add_route method for the `Room` class. You might need to add additional attributes to the `\\__init__()` for a proper implementation.
+To do so, you'll first have to head over to room.py and implement the add_route method for the `Room` class. You might need to add additional attributes to the `__init__()` for a proper implementation.
 
 Then you can use that method to update each room with their respective connections.
 
@@ -232,7 +231,7 @@ Make sure to use and update that attribute in `move()` so you can keep track of 
 
 Hint: If an attempted move is not a valid connection, let the player know they tried an "Invalid command".
 
-You can test moving around by adding the following code to `if \\__name__ == '\\__main__'`:
+You can test moving around by adding the following code to `if __name__ == '__main__'`:
 
 
 	adventure.move("WEST") # should move to the 'room 2' object
@@ -251,7 +250,7 @@ Make sure this works before going on!
 
 Time for your first steps into making this a game; have players give commands.
 
-Remove the code used to test moving around from the `if \\__name__ == '\\__main__'` and instead add `adventure.play()`.
+Remove the code used to test moving around from the `if __name__ == '__main__'` and instead add `adventure.play()`.
 Now when you run the script you should be met with a welcome message and be prompted for a command. But alas, not much happens when actually entering such a command!
 
 Start with letting the player know where they are in the game.
