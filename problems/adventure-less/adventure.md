@@ -86,28 +86,25 @@ The `data` contains four datafiles with which you can create two versions of adv
 
 Take a look at `adventure.py`. The file has three main components.
 
-1. The `import` statement
-
-	Instead of working from a single file, we've split up our classes into separate files. This keeps our files short and tidy, but we'll still have to link them up. For that we'll have to import them as follows:
+1. The `import` statement. Instead of working from a single file, we've split our two classes into separate files, in order to keep our files short and tidy. To be able to access the class from one file in the other, we have to import them:
 
 		from room import Room
 
-	This line ensures that the `Room` class from `room.py` is available to use within `adventure.py`, which makes it possible to instantiate `Room`-type objects for use in the adventure game.
-	The following call would create a `Room` object for you to use in Adventure:
+	This line ensures that the `Room` class from `room.py` is available to use within `adventure.py`, so we can create `Room` objects for use in the adventure game. For example, the following call would create a `Room` object for you to use in Adventure:
 
 		Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
-2. The `Adventure` class
+	Note that we did not include an import statement atop `room.py`. This is because `Room` does not need to know anything about the adventure game, only the other way around.
 
-	Inside the `Adventure` class are a couple of methods that make the game work.
+2. The `Adventure` class, which contain all methods that make the game work.
 
-	The `load_rooms` method is used to parse the data files and creates `Room` objects with that data.
+	- The `load_rooms` method is used to parse the data files and creates `Room` objects with that data.
 
-	The `game_over` method will eventually decide if the game has been won or lost by the player.
+	- The `game_over` method will eventually decide if the game has been won or lost by the player.
 
-	Moving around in the game is handled by the `move` method. Here you'll make use of the room objects you've created earlier.
+	- Moving around in the game is handled by the `move` method. Here you'll make use of the room objects you've created earlier.
 
-	The `play` method contains the main loop that makes your game playable. One important part of this is translating commands given by your player into method calls that handle the actions. We've already given you a headstart here. See how we check if a command is a "direction" with which to move?
+	- The `play` method contains the main loop that makes your game playable. One important part of this is translating commands given by your player into method calls that handle the actions. We've already given you a headstart here. See how we check if a command is a "direction" with which to move?
 
 3. The `if __name__ == "__main__"` part
 
