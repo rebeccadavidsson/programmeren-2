@@ -117,11 +117,11 @@ So the statement
 
 	room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
-creates a room with:
+creates a room with the following attributes:
 
-	- `id`: 3,
-	- `name`: 'Inside building', and
-	- `description`: 'You are inside a building, a well house for a large spring.'.
+- `id`: 3,
+- `name`: 'Inside building', and
+- `description`: 'You are inside a building, a well house for a large spring.'.
 
 The `Room` class contains two other methods, one for adding connections and one for checking connections, but you still have to implement them!
 
