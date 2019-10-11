@@ -73,8 +73,6 @@ Implement an object-oriented version of Crowther's Adventure game using the clas
 
 ## Understanding
 
-In your `adventure` folder, you'll find two files, each containing one class definition. The main game structure is implemented in `adventure.py`, while the room data will be contained in the `Room` class in `room.py`.
-
 ### `data/`
 
 The `data` contains four datafiles with which you can create two versions of adventure:
@@ -86,32 +84,35 @@ The `data` contains four datafiles with which you can create two versions of adv
 
 ### `adventure.py`
 
-Take a look at `adventure.py`. The file currently has three components:
+Take a look at `adventure.py`. The file has three main components.
 
-- an `import` statement
-- an `Adventure` class
-- an `if \\__name__ == "\\__main__"` part
+1. The `import` statement
 
-Instead of working from a single file, we've split up our classes into separate files. This keeps our files short and tidy, but we'll still have to link them up. For that we'll have to import them as follows:
+	Instead of working from a single file, we've split up our classes into separate files. This keeps our files short and tidy, but we'll still have to link them up. For that we'll have to import them as follows:
 
-	from room import Room
+		from room import Room
 
+	This line ensures that the `Room` class from `room.py` is available to use within `adventure.py`, which makes it possible to instantiate `Room`-type objects for use in the adventure game.
+	The following call would create a `Room` object for you to use in Adventure:
 
-This line ensures that the `Room` class from `room.py` is available to use within `adventure.py`, which makes it possible to instantiate `Room`-type objects for use in the adventure game.
-The following call would create a `Room` object for you to use in Adventure:
+		Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
-	Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
+2. The `Adventure` class
 
+	Inside the `Adventure` class are a couple of methods that make the game work.
 
-Inside the `Adventure` class are a couple of methods that make the game work.
+	The `load_rooms` method is used to parse the data files and creates `Room` objects with that data.
 
-The `load_rooms` method is used to parse the data files and creates `Room` objects with that data.
+	The `game_over` method will eventually decide if the game has been won or lost by the player.
 
-The `game_over` method will eventually decide if the game has been won or lost by the player.
+	Moving around in the game is handled by the `move` method. Here you'll make use of the room objects you've created earlier.
 
-Moving around in the game is handled by the `move` method. Here you'll make use of the room objects you've created earlier.
+	The `play` method contains the main loop that makes your game playable. One important part of this is translating commands given by your player into method calls that handle the actions. We've already given you a headstart here. See how we check if a command is a "direction" with which to move?
 
-The `play` method contains the main loop that makes your game playable. One important part of this is translating commands given by your player into method calls that handle the actions. We've already given you a headstart here. See how we check if a command is a "direction" with which to move?
+3. The `if __name__ == "__main__"` part
+
+	This part is very short. We only include a line to create an `Adventure` object, which will start the game. Note, however, that this is the only place where you can change the name of the map that is loaded.
+
 
 ### `room.py`
 
