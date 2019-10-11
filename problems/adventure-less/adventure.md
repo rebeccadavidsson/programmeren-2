@@ -23,6 +23,12 @@ In Adventure you have to navigate between "Rooms" through commands such as "WEST
     Outside building.
     >
 
+That first part of the adventure "map" may look like this:
+
+![](map.png)
+
+You can find the full map [at this website](http://www.spitenet.com/cave/), but note that you will be implementing a portion of the full map!
+
 But there is more than just navigating, at all times you can ask for `HELP` for an explanation of the game, or `LOOK` to get a detailed description of the room you are in.
 From the previous example you could see that the second time a room is entered a shorter description was shown. If we were to use look we would see the following:
 
