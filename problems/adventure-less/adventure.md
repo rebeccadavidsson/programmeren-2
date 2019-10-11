@@ -160,7 +160,7 @@ The `Room` class contains two other methods, one for adding connections and one 
 	OUT       1
 
 
-These are the details for all rooms in the game and how to navigate between them. Each room consists of 4 parts:
+These are the definitions of all rooms in the game and how to navigate between them. Take a good look at how the data is structured. Each room comprises 4 parts:
 
 	<id>
 	<name>
@@ -168,8 +168,7 @@ These are the details for all rooms in the game and how to navigate between them
 	---
 	<routes>
 
-
-A `<routes>` line contains both a `<direction>` and an `<id>`. For example, `Room 2 - End of road` is connected to room `1 - Outside building` by directions 'EAST' and 'DOWN'.
+A `<routes>` line contains both a `<direction>` and an `<id>`. For example, room 2 is connected to room 1 by directions `EAST` and `DOWN`.
 
 You'll find that the name is actually a short description of the room, whereas the 'description' is fully descriptive (Keep this in mind for later parts of the game!).
 First we'll have to parse this data into our program. Since a room is a bit more complicated than a simple string or integer we have set you up with a class named Room in room.py.
