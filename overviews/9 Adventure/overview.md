@@ -31,7 +31,7 @@ And we'll also take these into account from previous weeks: [comments](/quality/
 
 Implement either of:
 
-- [Adventure](/problems/adventure)
+- [Adventure](/problems/adventure-less)
 
 - [Adventure, Hacker edition](/problems/adventure-more)
 
