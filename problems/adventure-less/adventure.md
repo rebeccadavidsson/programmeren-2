@@ -175,7 +175,18 @@ Above, you have seen how the `Room` class is supposed to be *used* in code. We s
 
 For you `TODO` are three other methods that manage connections. The main idea is to always use these methods to change or find connections, and never to access the `connections` dictionary from outside the `Room` class.
 
-Implement the `add_connection`, `has_connection` and `get_connection` methods.
+Implement the `add_connection`, `has_connection` and `get_connection` methods, recalling that the `connections` dictionary is a map between directions like "EAST" and room objects.
+
+	connections = {
+		"WEST": <room.Room object at 0x7f325cbc4d68>,
+		"EAST": <room.Room object at 0x7f325cbc4fd0>
+	}
+
+1. In `add_connection` you need to add an item to the `connections` dictionary. How do you add items to a dictionary?
+
+2. In `has_connection` you need to check whether there is an item in the dictionary with a particular key, like "EAST". How do you check if a dictionary contains some key?
+
+3. In `get_connection` you need to retrieve an item from the dictionary, given a particular direction. How do you retrieve items in a dictionary?
 
 After implementing, you might test the class by starting Python and creating `Room` objects:
 
