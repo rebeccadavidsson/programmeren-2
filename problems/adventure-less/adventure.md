@@ -84,22 +84,22 @@ The `data` contains four datafiles with which you can create two versions of adv
 
 ### `room.py`
 
-This file contains the `Room` class definition. Each room contains basic descriptions, as well as links to the other rooms it is connected to in the game map. For example, if we load the **Tiny** game map, the result should be that we have 4 objects in memory, all pointing to each other:
-
-![](tiny.png)
-
-1. The `__init__` method initializes a room with an id, name and description. For example, you should be able to create a `Room` object using the following syntax:
-
-		room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
-
-	It also creates an empty **dictionary**, which will be used to store connections. The `connections` dictionary for a room might look like this:
+This file contains the `Room` class definition. Each room contains basic descriptions, as well as links to the other rooms it is connected to in the game map. These are saved in a **dictionary**. The `connections` dictionary for a room might look like this:
 
 		connections = {
 			"WEST": <room.Room object at 0x7f325cbc4d68>,
 			"EAST": <room.Room object at 0x7f325cbc4fd0>
 		}
 
-	This means that the dictionary maps a **direction** (string) to a `Room` object.
+This means that the dictionary maps a **direction** (string) to a `Room` object.
+
+For example, if we load the **Tiny** game map, the result should be that we have 4 objects in memory, all pointing to each other:
+
+![](tiny.png)
+
+1. The `__init__` method initializes a room with an id, name and description. For example, you should be able to create a `Room` object using the following syntax:
+
+		room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
 2. The `add_connection` method allows us to connect the room to a new one. We should be able to use it like this:
 
