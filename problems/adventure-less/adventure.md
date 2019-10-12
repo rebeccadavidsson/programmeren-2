@@ -79,38 +79,38 @@ The `data` contains four datafiles with which you can create two versions of adv
 
 - `TinyRooms.txt` is the smallest adventure game, consisting of 4 rooms. Useful for testing purposes. Here are the contents. You can see that the file contains multiple "rooms", with a room id and descriptions. Below the line are "connections" that each point to one of the other rooms. The game player should be able to enter the names of those connections as commands (like "WEST").
 
-	1
-	Outside building
-	You are standing at the end of a road before a small brick
-	building.  A small stream flows out of the building and
-	down a gully to the south.  A road runs up a small hill
-	to the west.
-	-----
-	WEST     2
-	UP       2
-	NORTH    3
-	IN       3
+		1
+		Outside building
+		You are standing at the end of a road before a small brick
+		building.  A small stream flows out of the building and
+		down a gully to the south.  A road runs up a small hill
+		to the west.
+		-----
+		WEST     2
+		UP       2
+		NORTH    3
+		IN       3
 
-	2
-	End of road
-	You are at the end of a road at the top of a small hill.
-	You can see a small building in the valley to the east.
-	-----
-	EAST     1
-	DOWN     1
+		2
+		End of road
+		You are at the end of a road at the top of a small hill.
+		You can see a small building in the valley to the east.
+		-----
+		EAST     1
+		DOWN     1
 
-	3
-	Inside building
-	You are inside a building, a well house for a large spring.
-	-----
-	SOUTH     1
-	OUT       1
+		3
+		Inside building
+		You are inside a building, a well house for a large spring.
+		-----
+		SOUTH     1
+		OUT       1
 
-	4
-	Victory
-	You have found the hidden well of winning a tiny game. Congratulations!
-	-----
-	FORCED    0
+		4
+		Victory
+		You have found the hidden well of winning a tiny game. Congratulations!
+		-----
+		FORCED    0
 
 - `SmallRooms.txt` is a bit larger and includes more advanced interactions.
 
