@@ -46,7 +46,7 @@ Though Crowther originally wrote his game in Fortran, an imperative programming 
 
 ## Specification
 
-Implement an object-oriented version of Crowther's Adventure game using the class structure provided below. It should:
+Implement an object-oriented version of Crowther's Adventure game using the class structure provided below. It should have the following parts:
 
 1. implement **loading** of the map:
 	* handling command line arguments to open a given datafile
@@ -111,6 +111,15 @@ This file contains the `Room` class definition.
 
 		room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
+	It also creates an empty **dictionary**, which will be used to store connections. The `connections` dictionary for a room might look like this:
+
+		connections = {
+			"WEST": <room.Room object at 0x7f325cbc4d68>,
+			"EAST": <room.Room object at 0x7f325cbc4fd0>
+		}
+
+	This means that the dictionary maps a **direction** (string) to a `Room` object.
+
 2. The `add_connection` method allows us to connect the room to a new one. We should be able to use it like this:
 
 		some_other_room_object = Room(5, 'Outside', 'You are outside.')
@@ -123,6 +132,36 @@ This file contains the `Room` class definition.
 4. The `get_connection` method assumes the connection is there and returns the room object that may be found in that direction.
 
 		new_room = room.get_connection("WEST")  # should now be the "other" room
+
+
+## Step 0: Implement the Room class
+
+Above, you have seen how the `Room` class is supposed to be *used* in code. We should be able to create rooms, and then connect different rooms to each other. The `__init__` method has already been implemented.
+
+The `Room` class has three other methods that manage connections. The main idea is to always use these methods to change or find connections, and never to access the `connections` dictionary from outside the `Room` class.
+
+Implement the `add_connection`, `has_connection` and `get_connection` methods.
+
+After implementing, you might test the class by starting Python and creating `Room` objects:
+
+	$ python -i room.py
+	>>> r1 = Room(1, "Room 1", "Description 1")
+	>>> r2 = Room(2, "Room 2", "Description 2")
+	>>> r2.add_connection("WEST", r1)
+	>>> r2.has_connection("EAST")
+	False
+	>>> r2.has_connection("WEST")
+	True
+	>>> r2.get_connection("WEST")
+	<__main__.Room object at 0x7f36f65076a0>
+
+In that last line, you find the Python description of a `Room` object, along with its assigned memory address. Seems to work!
+
+You should now also test your `Room` class using check50:
+
+	check50 minprog/cs50x/2019/adventure/less
+
+If the test fails, be sure to test manually like above!
 
 
 ## Step 0: Reading data files and the code
