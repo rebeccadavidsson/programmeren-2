@@ -39,7 +39,7 @@ From the previous example you could see that the second time a room is entered a
     to the west.
     >
 
-The adventure "map" is provided in a few **data files**, that contain room names and description, and in particular, which rooms are connected to other rooms, and using which commands.
+The adventure "map" is provided in a few **data files**, that contain room names and description, and in particular, information about which rooms are connected to other rooms, and using which commands.
 
 Though Crowther originally wrote his game in Fortran, an imperative programming language that has been around since the 1950s, we will be taking a more modern approach to its implementation, using object-oriented programming (OOP). OOP is particularly suited to Adventure, because its main idea is a series of rooms that are connected. Each room will be an object, and all of these objects will point to each other.
 
@@ -212,225 +212,160 @@ If the test fails, be sure to test manually like above!
 
 ## Step 1: Reading data files and the code
 
-### Parsing data files
-
-These are the definitions of all rooms in the game and how to navigate between them. Take a good look at how the data is structured. Each room comprises 4 parts:
+Take another look at the data in `TinyRooms.txt`. Each room has 4 parts:
 
 	<id>
 	<name>
 	<description>
-	---
-	<routes>
+	-----
+	<route1>
+	<route2>
+	...
 
-A `<routes>` line contains both a `<direction>` and an `<id>`. For example, room 2 is connected to room 1 by directions `EAST` and `DOWN`.
-
-You'll find that the `<name>` is actually a short description of the room, whereas the `<description>` is longer.
-
-In adventure.py you'll find the `load_rooms` method. We'll discuss how it is implemented shortly, but first let's see where it is used.
-
-We call the `load_rooms` method in the `__init__()` of the Adventure class. We use it there because every time we create a game, we want it to at least have a list of rooms. Any data an Adventure class needs to function properly is initialized here.
-
-Now let's look at `load_rooms` a little closer. We can divide the function into three parts.
-
-#### Part 1
-
-The first task to parsing the file is dividing the rooms into a list of data about each individual room. Looking at the datafiles we see that rooms are divided by a single newline. This means we can read lines from the file and save them to a list, until we reach that newline. That creates the follow list:
+Any `<routeX>` line contains both a `<direction>` and an `<id>`. For example, room 2 is connected to room 1 by directions `EAST` and `DOWN`. **Parsing** is the task of loading this information into memory in a useful way. 
 
 
-	[id, name, description, connection, ..., connection]
+### Reading the data files
 
-Then, when a newline is read, we save those lines we just read to another list. This creates a list of lists with each set of data about a room. That list looks like this:
+In `adventure.py`, you're provided with the `parse_rooms` method, wich loads all lines from a data file, and puts it into a list of data:
 
 	[[room_data], ..., [room_data]]
 
+And each [room_data] list might look like this:
 
-#### Part 2
+	[id, name, description, connection, ..., connection]
 
-Now that all rooms are loaded into memory and partitioned into separate lists, it is time to initialize each room into an object of our Room class.
+> We have provided this method in full because the format of the adventure data files is not ideally suited for Python. In modern applications, you might have data files in CSV or JSON format. You'll learn more about those in future assignments.
 
-For each set of room data we know that the first element is the `room_id`, the second element is its `name` and the third element is a `description`. We use those variables to make a `Room`, after wich we add that room to a dictionary of rooms using the room_id as the `key` for the `key`:`value` pair.
 
-#### Part 3
+### Creating rooms
 
-To finalize the Room objects we'll have to update each room with its corresponding connections from the data file. Once again we iterate over each set of room_data, but this time we'll use the connections.
+The "list of lists" from the previous step is a temporary structure, which is passed on to the `load_rooms` method. This method is going to create the "map" of rooms in memory.
 
-Since we don't know how many connections each room has, we'll have to slice till the end of each list. The start of each slice will be the fifth element of room data, that is the first element after the '`-----`' line.
+The first phase is creating each room. For each list of room data we know that the zeroth element is the `room_id`, the first element is its `name` and the second element is a `description`. We use those variables to make a `Room`, which is immediately placed into the `self.rooms` dictionary. We use a dictionary so we can make a mapping between a room number and the `Room` object, which in turn allows us to look up a room object by its ID.
 
-The connections ar then cleaned up a by splitting them into two strings, one for the direction and another for the connected room_id. Finally we use the room_id from the room_data to find the correct room in the dictionary we created in step 2.
+This means that we should now have a fully initialized `self.rooms` dictionary:
 
-Here you'll find your first TODO.
+	self.rooms = {
+		1: <room.Room object at 0x7f325cbc4d68>,
+		2: <room.Room object at 0x7f325cbc4fd0>
+	}
 
 
-## Step 1: Loading connections and moving around
+### Making connections
 
-First start with opening the correct datafile. Your program should accept a command line argument that is either "Tiny", "Small", or "Crowther" and no others.
-Use that argument for the `game` variable used in the `if __name__ == '__main__'` statement. Make sure to return an exit code of 1 if the argument is incorrect!
+The second phase of `load_rooms` is making connections. Because all rooms have now been created, we can loop through the data again and make each connection (can you think of the reason that we have to do this in two phases?).
 
-Now it's up to you to add the connections to each individual room object.
-To do so, you'll first have to head over to room.py and implement the add_route method for the `Room` class. You might need to add additional attributes to the `__init__()` for a proper implementation.
+Take a look at the code for phase 2. The connections are again retrieved from the `room_data`. The first three elements were room descriptions that we have already used, the next element is a separator line, and the remaining elements are indeed connections.
 
-Then you can use that method to update each room with their respective connections.
+So it's these elements that we extract from the list using a slice operator (`[4:]`), then loop through each element, **split** the text into a direction and a room number (of the room that the connection will be made to).
 
-. Parse a command line argument for the datafile filename.
-. Implement the add_route method for the `Room` class.
-. Add the correct routes to each respective room object.
+And that's where you'll find your next `TODO`. At that point in your program, you have enough information to make a connection. Use the `add_connection` method from `Room` to create them. The are a couple of fine points that you have to figure out when doing this, but it shouldn't be more than a couple of lines of code!
 
-### Moving around
+- One particular fine point is that the final "winning" room is indicated by a connection to a room 0 (which does not exist). So for now, if you encounter a connection to 0, skip over it.
 
-Now that we have a couple of rooms, we can almost start playing the game.
 
-First, implement the is_connected method in the `Room` class that can be used to see if the given command is a valid move. Use it to check if a given string has a connection for the room.
+## Step 2: Moving around
 
-Next up is the `move()` method in `Adventure`. We've already initialized the `current_room` attribute in the `\\__init__()` and set it to the room with id 1.
-Make sure to use and update that attribute in `move()` so you can keep track of where the player is.
+### Implement `move`
 
-Hint: If an attempted move is not a valid connection, let the player know they tried an "Invalid command".
+Now that we have a couple of rooms, we can start implementing the game itself. The most basic function of this game is moving around between rooms. Remember that the `Adventure` class has a variable that keeps track of the "current room" for the game. It also has a still-empty `move` method that's supposed to set the current room to a new one.
 
-You can test moving around by adding the following code to `if __name__ == '__main__'`:
+The `move` method has one parameter, `direction`, which should let you lookup (via the `current_room`) which room we're going to move on to. Just set `current_room` to that room and you're done.
 
 
-	adventure.move("WEST") # should move to the 'room 2' object
-	print(adventure.current_room) # should print room 2: "End of road"
-	adventure.move("DOWN") # should move to the 'room 1' object
-	adventure.move("IN") # should move to the 'room 3' object
-	print(adventure.current_room) # should print room 3: "Inside building"
+### Prompting for commands
 
-Make sure this works before going on!
+Now check out `if __name__ == '__main__'` at the bottom of `adventure.py`. Currently, if you run `adventure.py`, you will be shown the description of the first room, you can even enter commands, but nothing will happen as you enter them.
 
-- Implement `is_connected` for the `Room` class.
-- Implement `move` in `Adventure`.
-- Implement the `\\__str__` method for your `Room` class.
+We're going to support a few different commands, but first of all, let's allow your use to move around in the game using directions like "IN" or "WEST".
 
-### Prompt for commands
+- The simplest way to implement this is to pass the `command` to the adventure's `move` method.
 
-Time for your first steps into making this a game; have players give commands.
+- Make sure that you modify the program to display a short room description after each command!
 
-Remove the code used to test moving around from the `if __name__ == '__main__'` and instead add `adventure.play()`.
-Now when you run the script you should be met with a welcome message and be prompted for a command. But alas, not much happens when actually entering such a command!
+- If the player attempts a command that cannot be executed tell them they attempted an "Invalid command." and prompt for another command using the '>'.
 
-Start with letting the player know where they are in the game.
 
-Each time a player enters a room for the first time, we'll provide them with a full description of the room.
-Following the description we'll prompt the player for a command. The '>' will mark this prompt. It should look like this:
+### Finetuning the gameplay
 
-	You are standing at the end of a road before a small brick
-	building.  A small stream flows out of the building and
-	down a gully to the south.  A road runs up a small hill
-	to the west.
-	>
+As you make this work, please note that there are some fine-grained details to implement:
 
+- When a player enters a room for the first time, we'll provide them with a **full** description of the room.
 
-Now allow the player to actually move around wit valid commands. Each time they press enter you have to parse their input and check whether they can move in the indicated direction.
-Remeber not all users read the documentation. So be sure to allow for both UPPER and lower case commands.
+- Following the description we'll prompt the player for a command. The '>' will mark this prompt. It should look like this:
 
-If the player attempts a command that cannot be executed tell them they attempted an "Invalid command." and prompt for another command using the '>'.
-Like so:
+		You are standing at the end of a road before a small brick
+		building.  A small stream flows out of the building and
+		down a gully to the south.  A road runs up a small hill
+		to the west.
+		>
 
-	> OUT
-	Invalid command.
-	>
+- Not all users read the docs! Be sure to allow for both UPPER and lower case commands.
 
+- If the player attempts a command that cannot be executed tell them they attempted an "Invalid command." and prompt for another command using the '>'.
 
-If a player enters a room they've already seen, only give them the short description. How should we keep track of that?
+		> OUT
+		Invalid command.
+		>
 
-Hint: Starting the game counts as 'entering' the first room! Make sure to provide a description of the starting location.
+- If a player enters a room they've already seen, only give them the short description. How should we keep track of that?
 
-- Print the full description of a room each time a player enters a new room.
-- Print only the name of a room when a player enters a room they've entered before.
-- Allow a player to `move` using UPPER/lower cased commands from the terminal.
-- Properly handle invalid movements.
 
-### Additional commands
+## Step 3: Additional commands
 
-As a final step for making the basic game work, we'll add a few commands that make it easier to use: `QUIT`, `HELP` and `LOOK`.
-Implement htem in the following way:
+As a final step for making the basic game work, we'll add a few commands that make it easier to use: `QUIT`, `HELP` and `LOOK`. Implement these in the following way:
 
-`HELP` prints instructions to remind the player of their commands and how to use them.
-Have it behave as follows:
+- `HELP` prints instructions to remind the player of their commands and how to use them. It should behave as follows:
 
-	> HELP
-	You can move by typing directions such as EAST/WEST/IN/OUT
-	QUIT quits the game.
-	HELP prints instructions for the game.
-	INVENTORY lists the item in your inventory.
-	LOOK lists the complete description of the room and its contents.
-	TAKE <item> take item from the room.
-	DROP <item> drop item from your inventory.
+		> HELP
+		You can move by typing directions such as EAST/WEST/IN/OUT
+		QUIT quits the game.
+		HELP prints instructions for the game.
+		INVENTORY lists the item in your inventory.
+		LOOK lists the complete description of the room and its contents.
+		TAKE <item> take item from the room.
+		DROP <item> drop item from your inventory.
 
+- `QUIT` lets the player stop the game. Print `Thanks for playing!` and terminate the program cleanly.
 
-`QUIT` lets the player stop the game. Print `Thanks for playing!` and terminate the program cleanly.
+		> QUIT
+		Thanks for playing!
 
+- `LOOK` prints a full description of the room the player is currently in, even if the room was visited earlier.
 
-	> QUIT
-	Thanks for playing!
+		Inside building
+		> LOOK
+		You are inside a building, a well house for a large spring.
 
 
-`LOOK` prints a full description of the room the player is currently in, even if the room was visited earlier.
+## Step 4: Try `SmallRooms`
 
+Before continuing, make sure your program still works if you transition from the **Tiny** map to the **Small** map!
 
-	Inside building
-	> LOOK
-	You are inside a building, a well house for a large spring.
 
+## Step 5: forced movement
 
-- Implement the additional commands: `HELP`, `QUIT`, `LOOK`
+Sometimes a player will attempt a movement they cannot make. For example, in the Small adventure, when going WEST from the "Outside grate" room (6), one finds oneself at the edge of an "unpassable stream". The only way is going back the "Outside grate" room.
 
+The adventure game has a special feature called `FORCED` movements. If a player enters a room that has a direction named `FORCED`, the full room description will be printed, but then the user will be immediately moved back to the connected room.
 
-## Step 2: forced movement
+- You'll most likely want to do a check each time you move to a new room. If there's a FORCED connection in the new room, take a good look around and follow the forced route.
 
-Sometimes a player will attempt a movement they cannot make yet, because they are missing the required item. Passing the steel grate in room 6 for example requires keys.
-Instead of printing a custom message, we'll have the player move into a special sort of room. This room displays a description for what happened, and then forcefully moves the player to where the forced movement points.
-This move happpens automatically and immediately after printing the full description.
+- As you're going to have to print the description, handle this in the main game loop and not in the `move` method!
 
-Another example of forced movements can be found in the Crowther rooms 70 through 75. These rooms even have a conditional `FORCED` movement. These are the final few rooms, if all required items are owned the player will win the game and go to room 77. If not, the player continues to room 76 and has to try and find the remaining "`treasures`". The interesting part is that rooms 70 through 75 are devoid of a description! This makes it possible to have conditional movement based on 6 items, even though 5 extra rooms are required to do so.
 
-This leaves you to implement this `FORCED` movement to the game. Luckily a room with `FORCED` movement can only contain that movement and no others. So you won't have to take anything else into account when a `FORCED` move is encountered!
+## Step 5: The winner takes all
 
-Being `FORCED` moved looks like this:
+Now that you have implemented all the features of Adventure, your game should be fully playable. What's left is to make the game winnable. As you might recall from earlier, a "winning" room is indicated by having a FORCED connection to room 0 (which does not exist).
 
-	You are in a 25-foot depression floored with bare dirt.
-	Set into the dirt is a strong steel grate mounted in
-	concrete.  A dry streambed leads into the depression from
-	the north.
-	> DOWN
-	The grate is locked and you don't have any keys.
-	Outside grate
-	> DOWN
-	The grate is locked and you don't have any keys.
-	Outside grate
-	>
+To implement winning, you'll have to:
 
+- Change the `Room` class to add an attribute that indicates it's a "winning" room. Also add methods to set this attribute (called `set_winning`) and to request it (called (`is_winning`)).
 
-Remember to always print the full description when a room `FORCED` is entered. There's no room to `LOOK` around, since the player is immediately moved by the game.
+- Change the phase 2 algorithm in `load_rooms` to set a room to "winning" as soon as it encounters a FORCED connection to room 0.
 
-Hint: You'll most likely want to do a check each time you move to a new room. And if there's a forced movement in the new room, take a good look around and follow the forced route.
-
-- Update either `move` or the `play` loop in `Adventure` to 'forcefully' push players to the next room.
-- Don't forget to print a description when a player enters and leaves a 'FORCED' `Room`.
-
-
-## Step 3: The winner takes all
-
-Now that you have implemented all the features of Adventures, Crowther game is finally playable.
-But let's also make it winnable. For example, in the `CrowtherRooms.txt` file you can see that room 77 corresponds to victory.
-
-Implement the win condition into your game and gracefully terminate the game after attaining victory.
-
-
-## Optional: Abbreviations
-
-Between the datafiles you can also find a `SmallSynomyms.txt` file. Within that file is a list of commands and single-letter abbreviated versions.
-
-If you want to reduce time spent typing commands; parse the file and implement a way to also move or execute commands using their synonyms.
-
-
-### Testing
-
-Initially, check your progress by navigating through rooms manually. Just play the game!
-
-Later, use `check50` to check for specific corner cases that you may not have found.
-
-And finally, you may use the commands in this link:/course/problems/adventure-less/win.txt[text file] to single out spots where the checks may not give you enough information to proceed. These commands only work TODO.
+- Change the main game loop to make use of this new information. It should congratulate the user and gracefully terminate the game.
 
 
 ### `check50`
