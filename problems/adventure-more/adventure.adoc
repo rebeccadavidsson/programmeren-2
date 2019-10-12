@@ -572,11 +572,11 @@ But let's also make it winnable. For example, in the `CrowtherRooms.txt` file yo
 
 Implement the win condition into your game and gracefully terminate the game after attaining victory.
 
-== Optional: Abbreviations
+== Step 6: Synonyms
 
 Between the datafiles you can also find a `SmallSynomyms.txt` file. Within that file is a list of commands and single-letter abbreviated versions.
 
-If you want to reduce time spent typing commands; parse the file and implement a way to also move or exete commands using their synonyms.
+Parse the file and implement a way to also move or execute commands using synonyms.
 
 == Specification
 
