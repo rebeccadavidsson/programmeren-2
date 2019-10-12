@@ -2,45 +2,44 @@
 
 In this module, you'll again implement a game. This time, the running game will contain a lot of objects that together form the map of an adventure.
 
+
 ## Help
 
-For information on (or help with) this week:
+For information on (or help with) this module:
 
-4. Ask questions during office hours using the "Ask" tool on this website.
+1. Attend your mentor's section meeting.
 
-5. Visit (or e-mail) the course's heads.
+1. Ask questions during office hours using the "Ask" tool on this website.
 
-## Academic Honesty
+1. Visit (or e-mail) the course's heads.
+{: start="0"}
 
-Do keep in mind the course's policy on [academic honesty](/syllabus#academic_honesty) (like plagiarism), particularly its ["regret clause"](/syllabus#regret).
 
-## Getting Started
+## Grading
 
-Alright, here we go again!
+As soon as you have submitted working solutions for all problems below, your mentor will assess your programs, assign a grade for "quality", and provide you with some written feedback. This week, your programs will be primarily graded on:
 
-Log into <https://ide.cs50.io/> and execute the below in a terminal window.
+- [Magic numbers](/quality/magic-numbers)
+- [Loops](/quality/loops)
+- [Duplication](/quality/duplication)
+- [Nesting](/quality/nesting)
 
-    mkdir ~/module9/
-    cd ~/module9/
+And we'll also take these into account from last week: [comments](/quality/comments), [naming](/quality/naming), [indentation](/quality/indentation), [whitespace](/quality/whitespace).
+
 
 ## What to Do
 
-Implement [Adventure](/problems/adventure).
+Implement either of:
+
+- [Adventure](/problems/adventure)
+
+- [Adventure, Hacker edition](/problems/adventure-more)
+
+You can submit your solutions on the problem pages linked above. Before submitting, keep in mind the course's policy on [academic honesty](/syllabus#samenwerken-fraude-en-plagiaat) (like plagiarism).
 
 
 ## Reference
 
-- [Python](https://www.youtube.com/watch?v=mgBpcQRDtl0)
-
-
-## How to Submit
-
-1. When ready to submit, log into [CS50 IDE](https://cs50.io/).
-
-2. Download your `.py` files.
-
-3. Make sure you are signed in to this website!
-
-4. In the form below the problem, add the file that you downloaded.
-
-5. Press "Submit for grading". Presto!
+- [Dictionaries reference](https://docs.python.org/3/library/stdtypes.html#typesmapping)
+- [Dictionaries](http://greenteapress.com/thinkpython/html/thinkpython012.html) theory
+- [Doug on Python](https://www.youtube.com/watch?v=mgBpcQRDtl0)
