@@ -77,7 +77,7 @@ Implement an object-oriented version of Crowther's Adventure game using the clas
 
 The `data` contains four datafiles with which you can create two versions of adventure:
 
-- `TinyRooms.txt` is the smallest adventure game, consisting of 3 rooms. Useful for testing purposes.
+- `TinyRooms.txt` is the smallest adventure game, consisting of 4 rooms. Useful for testing purposes. Take a look at its contents!
 
 - `SmallRooms.txt` is a bit larger and includes more advanced interactions.
 
@@ -101,7 +101,7 @@ For example, if we load the **Tiny** game map, the result should be that we have
 
 		room = Room(3, 'Inside building', 'You are inside a building, a well house for a large spring.')
 
-2. The `add_connection` method allows us to connect the room to a new one. We should be able to use it like this:
+2. The `add_connection` method allows us to connect the room to a new one. Given the `room` variable that we created in the previous step, we should be able to use it like this:
 
 		some_other_room_object = Room(5, 'Outside', 'You are outside.')
 		room.add_connection("WEST", some_other_room_object)
@@ -112,7 +112,7 @@ For example, if we load the **Tiny** game map, the result should be that we have
 
 4. The `get_connection` method assumes the connection is there and returns the room object that may be found in that direction.
 
-		new_room = room.get_connection("WEST")  # should now be the "other" room
+		new_room = room.get_connection("WEST")  # we should now have access to the "other" room
 
 
 ### `adventure.py`
