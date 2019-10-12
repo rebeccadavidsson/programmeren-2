@@ -129,8 +129,6 @@ Take a look at `adventure.py`. The file has three main components.
 
 	- The `parse_rooms` method opens and parses the data files, and the `load_rooms` method creates `Room` objects with that data.
 
-		![](tiny.png)
-
 	- The `game_over` method will eventually decide (calculate) if the game has been won or lost by the player.
 
 	- Moving around in the game is handled by the `move` method, by setting the "current" room to a different one.
