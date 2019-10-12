@@ -82,30 +82,11 @@ The `data` contains four datafiles with which you can create two versions of adv
 - `SmallRooms.txt` is a bit larger and includes more advanced interactions.
 
 
-### `adventure.py`
-
-Take a look at `adventure.py`. The file has three main components.
-
-1. The `import` statement. Instead of working from a single file, we've split our two classes into separate files, in order to keep our files relatively short and tidy. To be able to access the Room class from the `adventure.py` file, we use `import`.
-
-	If you take a peek at `room.py`, you'll note that we did not include an import statement atop that file. This is because `Room` does not need to know anything about the adventure game, only the other way around.
-
-2. The biggest part of the file is the `Adventure` class, which contain all methods that make the game work.
-
-	- The `__init__` method ensures that all is set for playing an adventure game. In particular, it uses the other methods to load game data, build a structure of rooms, and point `current_room` to the first room in the map.
-
-	- The `parse_rooms` method opens and parses the data files, and the `load_rooms` method creates `Room` objects with that data.
-
-	- The `game_over` method will eventually decide (calculate) if the game has been won or lost by the player.
-
-	- Moving around in the game is handled by the `move` method, by setting the "current" room to a different one.
-
-3. The `if __name__ == "__main__"` part, which contains the main "game loop" of the program. After introducing the game, it repeatedly asks for a command from the user, and tries to perform that command. In the `while` statement, you see that the game will stop as soon as the `game_over()` method returns `True`.
-
-
 ### `room.py`
 
-This file contains the `Room` class definition.
+This file contains the `Room` class definition. Each room contains basic descriptions, as well as links to the other rooms it is connected to in the game map. For example, if we load the **Tiny** game map, the result should be that we have 4 objects in memory, all pointing to each other:
+
+![](tiny.png)
 
 1. The `__init__` method initializes a room with an id, name and description. For example, you should be able to create a `Room` object using the following syntax:
 
@@ -132,6 +113,29 @@ This file contains the `Room` class definition.
 4. The `get_connection` method assumes the connection is there and returns the room object that may be found in that direction.
 
 		new_room = room.get_connection("WEST")  # should now be the "other" room
+
+
+### `adventure.py`
+
+Take a look at `adventure.py`. The file has three main components.
+
+1. The `import` statement. Instead of working from a single file, we've split our two classes into separate files, in order to keep our files relatively short and tidy. To be able to access the Room class from the `adventure.py` file, we use `import`.
+
+	If you take a peek at `room.py`, you'll note that we did not include an import statement atop that file. This is because `Room` does not need to know anything about the adventure game, only the other way around.
+
+2. The biggest part of the file is the `Adventure` class, which contain all methods that make the game work.
+
+	- The `__init__` method ensures that all is set for playing an adventure game. In particular, it uses the other methods to load game data, build a structure of rooms, and point `current_room` to the first room in the map.
+
+	- The `parse_rooms` method opens and parses the data files, and the `load_rooms` method creates `Room` objects with that data.
+
+		![](tiny.png)
+
+	- The `game_over` method will eventually decide (calculate) if the game has been won or lost by the player.
+
+	- Moving around in the game is handled by the `move` method, by setting the "current" room to a different one.
+
+3. The `if __name__ == "__main__"` part, which contains the main "game loop" of the program. After introducing the game, it repeatedly asks for a command from the user, and tries to perform that command. In the `while` statement, you see that the game will stop as soon as the `game_over()` method returns `True`.
 
 
 ## Step 0: Implement the Room class
