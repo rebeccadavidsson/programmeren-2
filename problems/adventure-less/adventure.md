@@ -140,7 +140,7 @@ Take a look at `adventure.py`. The file has three main components.
 
 Above, you have seen how the `Room` class is supposed to be *used* in code. We should be able to create rooms, and then connect different rooms to each other. The `__init__` method has already been implemented.
 
-The `Room` class has three other methods that manage connections. The main idea is to always use these methods to change or find connections, and never to access the `connections` dictionary from outside the `Room` class.
+For you `TODO` are three other methods that manage connections. The main idea is to always use these methods to change or find connections, and never to access the `connections` dictionary from outside the `Room` class.
 
 Implement the `add_connection`, `has_connection` and `get_connection` methods.
 
