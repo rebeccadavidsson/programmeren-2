@@ -75,7 +75,7 @@ Implement an object-oriented version of Crowther's Adventure game using the clas
 
 ### `data/`
 
-The `data` contains four datafiles with which you can create two versions of adventure:
+The `data` directory contains data files with which you can create two versions of adventure:
 
 - `TinyRooms.txt` is the smallest adventure game, consisting of 4 rooms. It's quite useful for testing purposes. You can see below that the file contains multiple "rooms", with a room id and descriptions. Below the line are "connections" that each point to one of the other rooms. The game player should be able to enter the names of those connections as commands (like "WEST").
 
