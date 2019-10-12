@@ -341,31 +341,33 @@ As a final step for making the basic game work, we'll add a few commands that ma
 
 ## Step 4: Try `SmallRooms`
 
-Before continuing, make sure your program still works if you transition from the **Tiny** map to the **Small** map!
+Before continuing, make sure your program still works if you transition from the **Tiny** map to the **Small** map! You'll need it for the next part.
 
 
-## Step 5: forced movement
+## Step 5: Forced movement
 
 Sometimes a player will attempt a movement they cannot make. For example, in the Small adventure, when going WEST from the "Outside grate" room (6), one finds oneself at the edge of an "unpassable stream". The only way is going back the "Outside grate" room.
 
 The adventure game has a special feature called `FORCED` movements. If a player enters a room that has a direction named `FORCED`, the full room description will be printed, but then the user will be immediately moved back to the connected room.
 
-- You'll most likely want to do a check each time you move to a new room. If there's a FORCED connection in the new room, take a good look around and follow the forced route.
+- You'll most likely want to do a check each time you move to a new room. If there's a `FORCED` connection in the new room, take a good look around and follow the forced route.
 
 - As you're going to have to print the description, handle this in the main game loop and not in the `move` method!
 
 
 ## Step 5: The winner takes all
 
-Now that you have implemented all the features of Adventure, your game should be fully playable. What's left is to make the game winnable. As you might recall from earlier, a "winning" room is indicated by having a FORCED connection to room 0 (which does not exist).
+Now that you have implemented all the features of Adventure, your game should be fully playable. What's left is to make the game winnable. As you might recall from earlier, a "winning" room is indicated by having a `FORCED` connection to room 0 (which does not exist).
 
 To implement winning, you'll have to:
 
 - Change the `Room` class to add an attribute that indicates it's a "winning" room. Also add methods to set this attribute (called `set_winning`) and to request it (called (`is_winning`)).
 
-- Change the phase 2 algorithm in `load_rooms` to set a room to "winning" as soon as it encounters a FORCED connection to room 0.
+- Change the phase 2 algorithm in `load_rooms` to set a room to "winning" as soon as it encounters a `FORCED` connection to room 0.
 
 - Change the main game loop to make use of this new information. It should congratulate the user and gracefully terminate the game.
+
+This was Adventure!
 
 
 ### `check50`
