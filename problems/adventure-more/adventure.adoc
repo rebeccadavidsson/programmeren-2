@@ -590,6 +590,7 @@ Implement an Object-Oriented version of Crowther's Adventure game.
 * Implement methods to allow the user to pick up and drop items.
 * Implement conditional and forced movements.
 * The game must be winnable.
+* Synonyms may be used by users.
 
 === Testing
 
