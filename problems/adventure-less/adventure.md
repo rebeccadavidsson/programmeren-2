@@ -86,10 +86,10 @@ The `data` contains four datafiles with which you can create two versions of adv
 
 This file contains the `Room` class definition. Each room contains basic descriptions, as well as links to the other rooms it is connected to in the game map. These are saved in a **dictionary**. The `connections` dictionary for a room might look like this:
 
-		connections = {
-			"WEST": <room.Room object at 0x7f325cbc4d68>,
-			"EAST": <room.Room object at 0x7f325cbc4fd0>
-		}
+	connections = {
+		"WEST": <room.Room object at 0x7f325cbc4d68>,
+		"EAST": <room.Room object at 0x7f325cbc4fd0>
+	}
 
 This means that the dictionary maps a **direction** (string) to a `Room` object.
 
