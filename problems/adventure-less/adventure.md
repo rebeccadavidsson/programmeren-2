@@ -77,7 +77,40 @@ Implement an object-oriented version of Crowther's Adventure game using the clas
 
 The `data` contains four datafiles with which you can create two versions of adventure:
 
-- `TinyRooms.txt` is the smallest adventure game, consisting of 4 rooms. Useful for testing purposes. Take a look at its contents!
+- `TinyRooms.txt` is the smallest adventure game, consisting of 4 rooms. Useful for testing purposes. Here are the contents. You can see that the file contains multiple "rooms", with a room id and descriptions. Below the line are "connections" that each point to one of the other rooms. The game player should be able to enter the names of those connections as commands (like "WEST").
+
+	1
+	Outside building
+	You are standing at the end of a road before a small brick
+	building.  A small stream flows out of the building and
+	down a gully to the south.  A road runs up a small hill
+	to the west.
+	-----
+	WEST     2
+	UP       2
+	NORTH    3
+	IN       3
+
+	2
+	End of road
+	You are at the end of a road at the top of a small hill.
+	You can see a small building in the valley to the east.
+	-----
+	EAST     1
+	DOWN     1
+
+	3
+	Inside building
+	You are inside a building, a well house for a large spring.
+	-----
+	SOUTH     1
+	OUT       1
+
+	4
+	Victory
+	You have found the hidden well of winning a tiny game. Congratulations!
+	-----
+	FORCED    0
 
 - `SmallRooms.txt` is a bit larger and includes more advanced interactions.
 
@@ -127,7 +160,7 @@ Take a look at `adventure.py`. The file has three main components.
 
 	- The `__init__` method ensures that all is set for playing an adventure game. In particular, it uses the other methods to load game data, build a structure of rooms, and point `current_room` to the first room in the map.
 
-	- The `parse_rooms` method opens and parses the data files, and the `load_rooms` method creates `Room` objects with that data.
+	- The `parse_rooms` method opens and parses the data files, and the `load_rooms` method creates `Room` objects with that data. We'll explain more in step 1, below.
 
 	- The `game_over` method will eventually decide (calculate) if the game has been won or lost by the player.
 
@@ -157,7 +190,7 @@ After implementing, you might test the class by starting Python and creating `Ro
 	>>> r2.get_connection("WEST")
 	<__main__.Room object at 0x7f36f65076a0>
 
-In that last line, you find the Python description of a `Room` object, along with its assigned memory address. Seems to work!
+In that last line, you find the Python description of a `Room` object, along with its assigned memory address. Seems to work! (The address on your computer will most likely be different.)
 
 You should now also test your `Room` class using check50:
 
@@ -166,39 +199,9 @@ You should now also test your `Room` class using check50:
 If the test fails, be sure to test manually like above!
 
 
-## Step 0: Reading data files and the code
+## Step 1: Reading data files and the code
 
 ### Parsing data files
-
-`TinyRooms.txt`, the smallest version of the game, contains the following data:
-
-	1
-	Outside building
-	You are standing at the end of a road before a small brick
-	building.  A small stream flows out of the building and
-	down a gully to the south.  A road runs up a small hill
-	to the west.
-	-----
-	WEST     2
-	UP       2
-	NORTH    3
-	IN       3
-
-	2
-	End of road
-	You are at the end of a road at the top of a small hill.
-	You can see a small building in the valley to the east.
-	-----
-	EAST     1
-	DOWN     1
-
-	3
-	Inside building
-	You are inside a building, a well house for a large spring.
-	-----
-	SOUTH     1
-	OUT       1
-
 
 These are the definitions of all rooms in the game and how to navigate between them. Take a good look at how the data is structured. Each room comprises 4 parts:
 
