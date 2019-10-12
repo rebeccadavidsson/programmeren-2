@@ -147,14 +147,13 @@ For example, if we load the **Tiny** game map, the result should be that we have
 
 		new_room = room.get_connection("WEST")  # we should now have access to the "other" room
 
+> A hard constraint in this program is that the `Room` class may not access (use) other classes. Its methods may only manipulate `self` and any access only objects that are passed to it as arguments to method calls.
 
 ### `adventure.py`
 
 Take a look at `adventure.py`. The file has three main components.
 
 1. The `import` statement. Instead of working from a single file, we've split our two classes into separate files, in order to keep our files relatively short and tidy. To be able to access the Room class from the `adventure.py` file, we use `import`.
-
-	If you take a peek at `room.py`, you'll note that we did not include an import statement atop that file. This is because `Room` does not need to know anything about the adventure game, only the other way around.
 
 2. The biggest part of the file is the `Adventure` class, which contain all methods that make the game work.
 
@@ -168,6 +167,7 @@ Take a look at `adventure.py`. The file has three main components.
 
 3. The `if __name__ == "__main__"` part, which contains the main "game loop" of the program. After introducing the game, it repeatedly asks for a command from the user, and tries to perform that command. In the `while` statement, you see that the game will stop as soon as the `game_over()` method returns `True`.
 
+> A hard constraint in this program is that the `Adventure` class may not `print` anything, except in the `move` method. All other printing should be done in the `__main__` part. And in return, the `__main__` part may, aside from printing things, only call methods in the `Adventure` class. It may not access methods and/or attributes from the `Room class`.
 
 ## Step 0: Implement the Room class
 
@@ -203,11 +203,7 @@ After implementing, you might test the class by starting Python and creating `Ro
 
 In that last line, you find the Python description of a `Room` object, along with its assigned memory address. Seems to work! (The address on your computer will most likely be different.)
 
-You should now also test your `Room` class using check50:
-
-	check50 minprog/cs50x/2019/adventure/less
-
-If the test fails, be sure to test manually like above!
+Be sure to test manually like above!
 
 
 ## Step 1: Reading data files and the code
@@ -273,6 +269,8 @@ Now that we have a couple of rooms, we can start implementing the game itself. T
 
 The `move` method has one parameter, `direction`, which should let you lookup (via the `current_room`) which room we're going to move on to. Just set `current_room` to that room and you're done.
 
+- `move` should return True or False depending on whether the move was possible. The main program can use this result to notify the user if the move could not be performed.
+
 
 ### Prompting for commands
 
@@ -280,20 +278,11 @@ Now check out `if __name__ == '__main__'` at the bottom of `adventure.py`. Curre
 
 We're going to support a few different commands, but first of all, let's allow your use to move around in the game using directions like "IN" or "WEST".
 
-- The simplest way to implement this is to pass the `command` to the adventure's `move` method.
+- Start by passing the entered `command` to the adventure class's `move` method.
 
-- Make sure that you modify the program to display a short room description after each command!
+- Modify the program to display the room description after each command, so it feels like moving around in the map. (Currently a description is only printed once, at the start of the game.)
 
-- If the player attempts a command that cannot be executed tell them they attempted an "Invalid command." and prompt for another command using the '>'.
-
-
-### Finetuning the gameplay
-
-As you make this work, please note that there are some fine-grained details to implement:
-
-- When a player enters a room for the first time, we'll provide them with a **full** description of the room.
-
-- Following the description we'll prompt the player for a command. The '>' will mark this prompt. It should look like this:
+- Following the description we'll again prompt the player for a command. The '>' will mark this prompt. It should look like this:
 
 		You are standing at the end of a road before a small brick
 		building.  A small stream flows out of the building and
@@ -309,14 +298,27 @@ As you make this work, please note that there are some fine-grained details to i
 		Invalid command.
 		>
 
-- If a player enters a room they've already seen, only give them the short description. How should we keep track of that?
+You should now be able to pass an extra test in `check50`.
 
 
-## Step 3: Additional commands
+## Step 3: Short and long descriptions?
+
+If a player enters a room they've already seen, only give them the short description. How should we keep track of that?
+
+- First, add a new attribute to `Room.__init__`: self.visited. It should probably be False when the room is first initialized.
+
+- Then, add a `set_visited()` method to `Room`, which marks it as visited. Also, add a `get_visited()` method, which returns False or True depending on the current state of the room.
+
+- Having done that, you can change `Adventure`'s `move` method to set a room to visited **right before moving to another room**. Use the new `set_visited` method to do that.
+
+- And finally, you can now use `get_visited` in `Adventure.get_description` to return either the room `name` or the room `description`, depending on whether it was visited before.
+
+
+## Step 4: Additional commands
 
 As a final step for making the basic game work, we'll add a few commands that make it easier to use: `QUIT`, `HELP` and `LOOK`. Implement these in the following way:
 
-- `HELP` prints instructions to remind the player of their commands and how to use them. It should behave as follows:
+-   `HELP` prints instructions to remind the player of their commands and how to use them. It should behave as follows:
 
 		> HELP
 		You can move by typing directions such as EAST/WEST/IN/OUT
@@ -327,24 +329,24 @@ As a final step for making the basic game work, we'll add a few commands that ma
 		TAKE <item> take item from the room.
 		DROP <item> drop item from your inventory.
 
-- `QUIT` lets the player stop the game. Print `Thanks for playing!` and terminate the program cleanly.
+-   `QUIT` lets the player stop the game. Print `Thanks for playing!` and terminate the program cleanly.
 
 		> QUIT
 		Thanks for playing!
 
-- `LOOK` prints a full description of the room the player is currently in, even if the room was visited earlier.
+-   `LOOK` prints a full description of the room the player is currently in, even if the room was visited earlier.
 
 		Inside building
 		> LOOK
 		You are inside a building, a well house for a large spring.
 
 
-## Step 4: Try `SmallRooms`
+## Step 5: Try `SmallRooms`
 
 Before continuing, make sure your program still works if you transition from the **Tiny** map to the **Small** map! You'll need it for the next part.
 
 
-## Step 5: Forced movement
+## Step 6: Forced movement
 
 Sometimes a player will attempt a movement they cannot make. For example, in the Small adventure, when going WEST from the "Outside grate" room (6), one finds oneself at the edge of an "unpassable stream". The only way is going back the "Outside grate" room.
 
@@ -355,7 +357,7 @@ The adventure game has a special feature called `FORCED` movements. If a player 
 - As you're going to have to print the description, handle this in the main game loop and not in the `move` method!
 
 
-## Step 5: The winner takes all
+## Step 7: The winner takes all
 
 Now that you have implemented all the features of Adventure, your game should be fully playable. What's left is to make the game winnable. As you might recall from earlier, a "winning" room is indicated by having a `FORCED` connection to room 0 (which does not exist).
 
@@ -366,6 +368,21 @@ To implement winning, you'll have to:
 - Change the phase 2 algorithm in `load_rooms` to set a room to "winning" as soon as it encounters a `FORCED` connection to room 0.
 
 - Change the main game loop to make use of this new information. It should congratulate the user and gracefully terminate the game.
+
+
+## Step 8: Check your work
+
+Have a good look at the constraints noted earlier:
+
+- A hard constraint in this program is that the `Room` class may not access (use) other classes. Its methods may only manipulate `self` and any access only objects that are passed to it as arguments to method calls.
+
+- A hard constraint in this program is that the `Adventure` class may not `print` anything, except in the `move` method. All other printing should be done in the `__main__` part. And in return, the `__main__` part may, aside from printing things, only call methods in the `Adventure` class. It may not access methods and/or attributes from the `Room class`.
+
+
+## Step 9: Synonyms
+
+TBA
+
 
 This was Adventure!
 
