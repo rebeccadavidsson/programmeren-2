@@ -380,10 +380,7 @@ Have a good look at the constraints noted earlier:
 
 ## Step 9: Synonyms
 
-TBA
-
-
-This was Adventure!
+Step 9 doesn't exist. This was Adventure!
 
 
 ### `check50`
