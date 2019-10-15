@@ -354,22 +354,24 @@ The adventure game has a special feature called `FORCED` movements. If a player 
 - As you're going to have to print the description, handle this in the main game loop and not in the `move` method!
 
 
-## Step 7: The winner takes all
+## Step 7: The winner takes all, the loser cries
 
-Now that you have implemented all the features of Adventure, your game should be fully playable. What's left is to make the game winnable. As you might recall from earlier, a "winning" room is indicated by having a `FORCED` connection to room 0 (which does not exist).
+> Note: slightly changed on Tue, Oct 15 at 16:00.
 
-To implement winning, you'll have to:
+Now that you have implemented all the features of Adventure, your game should be fully playable. What's left is to make the game winnable or losable. As you might recall from earlier, a "final" room is indicated by having a `FORCED` connection to room 0 (which does not exist).
 
-- Change the `Room` class to add an attribute that indicates it's a "winning" room. Also add methods to set this attribute (called `set_winning`) and to request it (called (`is_winning`)).
+To implement the end of the game, you'll have to:
 
-- Change the phase 2 algorithm in `load_rooms` to set a room to "winning" as soon as it encounters a `FORCED` connection to room 0.
+- Change the `Room` class to add an attribute that indicates it's a "final" room. Also add methods to set this attribute (called `set_final`) and to request it (called (`is_final`)).
 
-- Change the main game loop to make use of this new information. It should congratulate the user and gracefully terminate the game.
+- Change the phase 2 algorithm in `load_rooms` to set a room to "final" as soon as it encounters a `FORCED` connection to room 0.
+
+- Change the main game loop to make use of this new information. It should gracefully terminate the game as soon as a final room is encountered.
 
 
 ## Step 8: Check your work
 
-Have a good look at the constraints noted earlier:
+Have a good look at the constraints we **noted earlier**:
 
 - A hard constraint in this program is that the `Room` class may not access (use) other classes. Its methods may only manipulate `self` and any access only objects that are passed to it as arguments to method calls.
 
