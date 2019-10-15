@@ -324,10 +324,7 @@ As a final step for making the basic game work, we'll add a few commands that ma
 		You can move by typing directions such as EAST/WEST/IN/OUT
 		QUIT quits the game.
 		HELP prints instructions for the game.
-		INVENTORY lists the item in your inventory.
 		LOOK lists the complete description of the room and its contents.
-		TAKE <item> take item from the room.
-		DROP <item> drop item from your inventory.
 
 -   `QUIT` lets the player stop the game. Print `Thanks for playing!` and terminate the program cleanly.
 
