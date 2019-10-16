@@ -30,7 +30,8 @@ grades:
     lovely-hangman: *fullyauto
     adventure-less: *fullyauto
     adventure-more: *fullyauto
-    similarities: *fullyauto
+    simil-less: *fullyauto
+    simil-more: *fullyauto
     survey: *fullyauto
 
     m6:
@@ -42,6 +43,7 @@ grades:
     m7: *manual
     m8: *manual
     m9: *manual
+    m10: *manual
 
 modules:
     m6:
@@ -56,7 +58,8 @@ modules:
         - adventure-less
         - adventure-more
     m10:
-        - similarities
+        - simil-less
+        - simil-more
         - survey
 
 calculation:
