@@ -55,7 +55,7 @@ Elke module moet op de vooraf bepaalde deadline ingeleverd zijn. Een **voorlopig
 | Module 7  | vr  4 okt |  
 | Module 8  | wo  9 okt |  
 | Module 9  | vr 18 okt |  
-| Module 10 | do 24 okt |  
+| Module 10 | vr 25 okt |  
 
 In het geval van planningsproblemen of ziekte is het mogelijk de deadline met 1 tot 3 dagen op te schuiven, in ruil voor een bescheiden puntenaftrek. Dit gaat volledig automatisch bij later inleveren en hoeft dus in beginsel niet gemeld te worden. Toch is het verstandig om je mentor aan te spreken om te overleggen of advies te vragen over het halen van verdere deadlines.
 
