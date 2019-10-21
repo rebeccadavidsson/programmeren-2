@@ -77,3 +77,8 @@ mods:
         m7: 1
         m8: 1
         m9: 1
+
+tentamen:
+    required: true
+    submits:
+        tentamen: 1
