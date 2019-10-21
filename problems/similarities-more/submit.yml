@@ -1,4 +1,4 @@
-name: simil_more
+name: simil-more
 files:
     required:
         - helpers.py

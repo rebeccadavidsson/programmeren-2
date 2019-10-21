@@ -28,7 +28,7 @@ Log into <https://ide.cs50.io/> and execute the below in a terminal window.
 
 ## What to Do
 
-1. Watch [Lecture 8](/lectures/lecture-8)
+1. Watch [Lecture 8](/lectures/web)
 
 2. Implement either of:
 

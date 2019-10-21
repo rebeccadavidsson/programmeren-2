@@ -1,4 +1,4 @@
-name: simil_less
+name: simil-less
 files:
     required:
         - index.html
