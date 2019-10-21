@@ -43,6 +43,8 @@ grades:
     m8: *manual
     m9: *manual
 
+    tentamen: *test
+
 modules:
     m6:
         - homepage
